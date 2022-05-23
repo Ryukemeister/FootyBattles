@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 15% 85%;
+}
+
+.hamburger {
+  display: flex;
+  margin-left: 75px;
+  margin-top: 50px;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+}
+
+hr {
+  margin-top: 3.5rem;
+  margin-bottom: -5.5rem;
+  height: 65vh;
+  background: black;
+}
+
+.scorecard {
+  margin-top: 100px;
+}
+
+.scorecards {
+  display: flex;
+}
+
+.battle-scorecard {
+  display: flex;
+  margin: auto;
+  margin-top: 50px;
+  align-items: center;
+  width: 250px;
+  height: 370px;
+  background-image: url(./img/Sc5.jpg);
+  background-position: center center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  /*border: 2px solid red;*/
+}
+
+.scorecard-one {
+  display: flex;
+  margin: auto;
+  margin-top: 50px;
+  align-items: center;
+  width: 250px;
+  height: 370px;
+  background-image: url(./img/Sc5.jpg);
+  background-position: center center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  /*border: 2px solid red;*/
+}

@@ -63,15 +63,15 @@ span {
 }
 
 .learn-more-btn {
-  font-size: 23px;
+  font-size: 20px;
   font-weight: 600;
   padding: 0.5em 0.3em;
   margin-left: 70px;
   background: #f99a92;
-  width: 250px;
-  height: 55px;
-  letter-spacing: 2px;
-  border-radius: 8px;
+  width: 180px;
+  height: 50px;
+  letter-spacing: 0.3px;
+  border-radius: 9px;
   border: #f99a92;
   cursor: pointer;
 }
