@@ -15,9 +15,20 @@
 .hero-content {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  justify-content: center;
+  align-items: center;
 }
 */
+
+.hero-content {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+}
+
+.contents {
+  margin-top: 40px;
+}
 
 .hero-img img {
   max-width: 100%;
@@ -26,7 +37,10 @@
 }
 
 hr {
-  margin: 3.5rem;
+  margin-left: 3.5rem;
+  margin-right: 3.5rem;
+  margin-top: 0rem;
+  margin-bottom: 1.5rem;
   height: 2px;
   background: black;
 }
@@ -34,7 +48,9 @@ hr {
 .hamburger {
   width: 55px;
   height: 55px;
-  margin: 70px;
+  align-self: flex-start;
+  margin-left: 70px;
+  /*margin: 70px;*/
   cursor: pointer;
 }
 
@@ -50,19 +66,23 @@ span {
 }
 
 .description {
+  text-align: justify;
+  padding-right: 80px;
   font-size: 25px;
   font-weight: normal;
   padding-left: 70px;
   font-family: Georgia, "Times New Roman", Times, serif;
   line-height: 140%;
+  margin-bottom: 2rem;
 }
 
 .learn-more {
   margin-left: 70px;
-  font-family: "Poppins", sans-serif;
+  /*font-family: "Poppins", sans-serif;*/
 }
 
 .learn-more-btn {
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 20px;
   font-weight: 600;
   padding: 0.5em 0.3em;
