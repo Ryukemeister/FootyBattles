@@ -60,3 +60,56 @@ hr {
   background-repeat: no-repeat;
   /*border: 2px solid red;*/
 }
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  width: 575px;
+  height: 100vh;
+  grid-template-columns: 45%;
+  background-color: black;
+  left: -100%;
+  transition: 750ms;
+}
+
+.sidebar.active {
+  left: 0;
+  transition: 450ms;
+}
+
+li {
+  padding: 10px;
+}
+
+.sidebar-menu a {
+  text-decoration: none;
+  font-size: 45px;
+  color: white;
+  font-family: "Bebas Neue", cursive;
+}
+
+.sidebar-menu a:hover {
+  color: #f99a92;
+  transition: 200ms;
+}
+
+.cross img {
+  cursor: pointer;
+  display: flex;
+  justify-self: flex-end;
+  align-self: flex-end;
+  margin-left: 410px;
+  margin-top: -110px;
+  height: 70px;
+  width: 70px;
+  /*border: 2px solid white;*/
+}
+
+.hamburger-icon {
+  border: none;
+  background: white;
+}
