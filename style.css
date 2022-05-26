@@ -122,11 +122,7 @@ li {
 
 .sidebar-menu a {
   text-decoration: none;
-<<<<<<< HEAD
-  font-size: 55px;
-=======
   font-size: 45px;
->>>>>>> betaVersion
   color: white;
   font-family: "Bebas Neue", cursive;
 }
@@ -141,13 +137,8 @@ li {
   display: flex;
   justify-self: flex-end;
   align-self: flex-end;
-<<<<<<< HEAD
-  margin-left: 420px;
-  margin-top: -90px;
-=======
   margin-left: 410px;
   margin-top: -110px;
->>>>>>> betaVersion
   height: 70px;
   width: 70px;
   /*border: 2px solid white;*/
