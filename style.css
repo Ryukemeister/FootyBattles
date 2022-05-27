@@ -196,6 +196,7 @@ li {
     margin-bottom: 1.5rem;
     height: 3px;
     background: black;
+    border-radius: 120px;
     color: black;
   }
 
@@ -217,5 +218,47 @@ li {
     border-radius: 9px;
     border: #f99a92;
     cursor: pointer;
+  }
+
+  .sidebar {
+    display: flex;
+    /* margin: auto;*/
+    flex-direction: column;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    /*width: 575px;*/
+    height: 100vh;
+    width: 100%;
+    /* grid-template-columns: 45%;*/
+    background-color: black;
+    left: -150%;
+    transition: 850ms;
+  }
+
+  .sidebar-menu a {
+    text-decoration: none;
+    font-size: 50px;
+    color: white;
+    font-family: "Bebas Neue", cursive;
+  }
+
+  .cross img {
+    cursor: pointer;
+    display: flex;
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin-right: 0rem;
+    margin-left: 200px;
+    margin-top: -170px;
+    height: 70px;
+    width: 70px;
+    /*border: 2px solid white;*/
+  }
+
+  .sidebar-menu a:hover {
+    color: #ffffff;
+    transition: 200ms;
   }
 }
