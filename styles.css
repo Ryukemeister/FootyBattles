@@ -33,7 +33,7 @@ hr {
   display: flex;
 }
 
-.battle-scorecard {
+.scorecard-one {
   display: flex;
   margin: auto;
   margin-top: 50px;
@@ -47,7 +47,7 @@ hr {
   /*border: 2px solid red;*/
 }
 
-.scorecard-one {
+.scorecard-two {
   display: flex;
   margin: auto;
   margin-top: 50px;
@@ -112,4 +112,112 @@ li {
 .hamburger-icon {
   border: none;
   background: white;
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    display: flex;
+    /*grid-template-columns: 10% 90%;*/
+  }
+
+  .hamburger {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    /*  align-self: flex-start;*/
+    margin-left: 2.2rem;
+    margin-top: 2.5rem;
+    cursor: pointer;
+  }
+
+  .scorecards {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .scorecard {
+    margin-top: 100px;
+    /*border: 2px solid red;*/
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    /* grid-template-columns: 45%;*/
+    background-color: black;
+    left: -200%;
+    transition: 850ms;
+  }
+
+  .sidebar-menu a {
+    text-decoration: none;
+    font-size: 50px;
+    color: white;
+    font-family: "Bebas Neue", cursive;
+  }
+
+  .cross img {
+    cursor: pointer;
+    display: flex;
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin-right: 0rem;
+    margin-left: 200px;
+    margin-top: -170px;
+    height: 70px;
+    width: 70px;
+    /*border: 2px solid white;*/
+  }
+
+  .sidebar-menu a:hover {
+    color: #ffffff;
+    transition: 200ms;
+  }
+
+  hr {
+    align-self: flex-start;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    height: 0.5px;
+    width: 300px;
+    margin-left: -80px;
+    margin-right: -80px;
+  }
+
+  .scorecard-one {
+    display: flex;
+    margin: auto;
+    margin-top: 50px;
+    margin-left: -4rem;
+    align-items: center;
+    width: 250px;
+    height: 370px;
+    background-image: url(./img/Sc5.jpg);
+    background-position: center center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /*border: 2px solid red;*/
+  }
+
+  .scorecard-two {
+    display: flex;
+    margin: auto;
+    margin-top: 0px;
+    margin-left: -4rem;
+    margin-left: -4rem;
+    margin-bottom: 50px;
+    align-items: center;
+    width: 250px;
+    height: 370px;
+    background-image: url(./img/Sc5.jpg);
+    background-position: center center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
 }
