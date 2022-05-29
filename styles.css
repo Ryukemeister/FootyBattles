@@ -114,6 +114,11 @@ li {
   background: white;
 }
 
+.player-image {
+  height: 300px;
+  width: 300px;
+}
+
 @media screen and (max-width: 480px) {
   .container {
     display: flex;
