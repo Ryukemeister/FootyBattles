@@ -237,6 +237,11 @@ li {
     transition: 850ms;
   }
 
+  .sidebar.active {
+    left: 0;
+    transition: 500ms;
+  }
+
   .sidebar-menu a {
     text-decoration: none;
     font-size: 50px;
@@ -251,7 +256,7 @@ li {
     align-self: flex-end;
     margin-right: 0rem;
     margin-left: 200px;
-    margin-top: -170px;
+    margin-top: -18vh;
     height: 70px;
     width: 70px;
     /*border: 2px solid white;*/
