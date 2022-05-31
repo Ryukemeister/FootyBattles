@@ -14,7 +14,17 @@ crossBtn.addEventListener("click", function () {
   sidebar.classList.remove("active");
 });
 
-const desiredPlayerName = "lionel messi";
+const checkIfArray = function (el) {
+  // Another way to check if the el is not is the instance of method
+  // if(el instanceof Array)
+  if (!Array.isArray(el)) {
+    console.log(el);
+  } else {
+    console.log(el[0]);
+  }
+};
+
+const desiredPlayerName = "robert lewandowski";
 
 const getDesiredPlayer = function () {
   fetch(
@@ -39,8 +49,8 @@ const getDesiredPlayer = function () {
           player.slug.split("-").join(" ").toLowerCase() === desiredPlayerName
       );
       console.table(playerInfo);
-      console.log(playerInfo.slug);
-      console.log(playerInfo.slug.split("-").join(" "));
+      // console.log(playerInfo.slug);
+      // console.log(playerInfo.slug.split("-").join(" "));
 
       const {
         name,
@@ -48,29 +58,62 @@ const getDesiredPlayer = function () {
         position_name,
         date_birth_at,
         shirt_number,
+        position,
         flag,
         photo,
         id,
         preferred_foot,
+        positions,
       } = playerInfo;
       //console.table(playerId);
-      console.log(response.data);
+      // console.log(response.data);
       // player.src = `${photo}`;
       console.log(
         name,
         age,
-        position_name,
+        position,
         date_birth_at,
         shirt_number,
-        flag,
-        preferred_foot
+        preferred_foot,
+        flag
+        // positions
       );
-
+      checkIfArray(positions.main);
+      getPlayerClub(id);
       //getPlayerStat(id);
     })
     .catch((err) => {
       console.error(err);
     });
+};
+
+const getPlayerClub = function (playerId) {
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Host": "sportscore1.p.rapidapi.com",
+      "X-RapidAPI-Key": apiKey,
+    },
+  };
+
+  fetch(
+    "https://sportscore1.p.rapidapi.com/players/" + playerId + "/teams?page=1",
+    options
+  )
+    .then((response) => response.json())
+    .then((response) => {
+      const { data } = response;
+      if (!Array.isArray(data)) {
+        console.log(data);
+        console.log(data.logo);
+      } else {
+        console.log(data[0]);
+        console.log(data[0].logo);
+      }
+      // console.log(data);
+      // console.log(data[0].logo);
+    })
+    .catch((err) => console.error(err));
 };
 
 // getDesiredPlayer();
