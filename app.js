@@ -24,7 +24,7 @@ const checkIfArray = function (el) {
   }
 };
 
-const desiredPlayerName = "robert lewandowski";
+const desiredPlayerName = "edouard mendy";
 
 const getDesiredPlayer = function () {
   fetch(
@@ -48,7 +48,8 @@ const getDesiredPlayer = function () {
         (player) =>
           player.slug.split("-").join(" ").toLowerCase() === desiredPlayerName
       );
-      console.table(playerInfo);
+      console.log(playerInfo);
+      console.log(playerInfo.position_name);
       // console.log(playerInfo.slug);
       // console.log(playerInfo.slug.split("-").join(" "));
 
