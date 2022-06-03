@@ -24,7 +24,23 @@ const checkIfArray = function (el) {
   }
 };
 
+const getStatsFromFieldName = function (competion, fieldName) {
+  return competion.find((item) => item.group_name.toLowerCase() === fieldName);
+};
+
+const getAllStats = function (id, apikey) {};
+
+const getStrikerStats = function () {
+  getAllStats();
+  console.log(details);
+};
+const getDefenderStats = function () {};
+const getMidfielderStats = function () {};
+const getGoalieStats = function () {};
+
 const desiredPlayerName = "edouard mendy";
+
+console.log(getAllStats(73111, apiKEY));
 
 const getDesiredPlayer = function () {
   fetch(
@@ -34,7 +50,7 @@ const getDesiredPlayer = function () {
       method: "POST",
       headers: {
         "x-rapidapi-host": "sportscore1.p.rapidapi.com",
-        "x-rapidapi-key": apiKey,
+        "x-rapidapi-key": apiKEY,
       },
     }
   )
@@ -49,39 +65,79 @@ const getDesiredPlayer = function () {
           player.slug.split("-").join(" ").toLowerCase() === desiredPlayerName
       );
       console.log(playerInfo);
-      console.log(playerInfo.position_name);
+
       // console.log(playerInfo.slug);
       // console.log(playerInfo.slug.split("-").join(" "));
 
-      const {
-        name,
-        age,
-        position_name,
-        date_birth_at,
-        shirt_number,
-        position,
-        flag,
-        photo,
-        id,
-        preferred_foot,
-        positions,
-      } = playerInfo;
+      const { name, position_name, shirt_number, photo, id, positions } =
+        playerInfo;
       //console.table(playerId);
       // console.log(response.data);
       // player.src = `${photo}`;
-      console.log(
-        name,
-        age,
-        position,
-        date_birth_at,
-        shirt_number,
-        preferred_foot,
-        flag
-        // positions
-      );
+      console.log(name, shirt_number, positions, position_name);
       checkIfArray(positions.main);
       getPlayerClub(id);
-      //getPlayerStat(id);
+      getPlayerStat(id);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
+
+const getPlayerStat = function (id) {
+  fetch("https://sportscore1.p.rapidapi.com/players/" + id + "/statistics", {
+    method: "GET",
+    headers: {
+      "x-rapidapi-host": "sportscore1.p.rapidapi.com",
+      "x-rapidapi-key": apiKEY,
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((info) => {
+      const { data } = info;
+      //console.log(data);
+      const currentSeasonStats = data.filter((obj) =>
+        obj.season.slug.startsWith("2021-2022")
+      );
+      const getListOfLeagues = currentSeasonStats.map(
+        (competion) => competion.season.name
+      );
+      console.log(getListOfLeagues);
+      const competitionName = getListOfLeagues[0];
+      const statsForSpecificCompetion = data.filter(
+        (obj) =>
+          obj.season.slug.startsWith("2021") &&
+          obj.season.name
+            .toLowerCase()
+            .startsWith(competitionName.toLocaleLowerCase().slice(0, 2))
+      );
+      // console.log(currentSeasonStats);
+      console.log(statsForSpecificCompetion);
+
+      //console.log(statsForSpecificCompetion[0].details);
+      const [{ details }] = statsForSpecificCompetion;
+      console.log(details);
+
+      const detailedStatsForSeason = currentSeasonStats.flatMap(
+        (item) => item.details
+      );
+      //console.log(detailedStatsForCompetition);
+      //console.log(detailedStatsForSeason);
+
+      const matchesStats = getStatsFromFieldName(details, "matches");
+      const attackingStats = getStatsFromFieldName(details, "attacking");
+      const defendingStats = getStatsFromFieldName(details, "defending");
+      const pasingStats = getStatsFromFieldName(details, "passes");
+      const foulStats = getStatsFromFieldName(details, "cards");
+      const otherStats = getStatsFromFieldName(details, "other (per game)");
+      console.table(matchesStats);
+      console.table(attackingStats);
+      console.table(pasingStats);
+      console.table(defendingStats);
+      console.table(foulStats);
+      console.table(otherStats);
     })
     .catch((err) => {
       console.error(err);
@@ -93,7 +149,7 @@ const getPlayerClub = function (playerId) {
     method: "GET",
     headers: {
       "X-RapidAPI-Host": "sportscore1.p.rapidapi.com",
-      "X-RapidAPI-Key": apiKey,
+      "X-RapidAPI-Key": apiKEY,
     },
   };
 
