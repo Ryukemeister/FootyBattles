@@ -1,5 +1,5 @@
 "use strict";
-import { apiKey, apiKEY } from "./utils.js";
+import { apiKey, apiKEY, apikey } from "./utils.js";
 
 const toggleBtn = document.querySelector(".hamburger-icon");
 const crossBtn = document.querySelector(".cross-icon");
@@ -144,7 +144,7 @@ const getGoalieStats = function (id, apikey) {
 // const desiredPlayerName = "mason mountt";
 // const desiredPlayerName = "thiago silva";
 
-const desiredPlayerName = "eden hazard";
+const desiredPlayerName = "cristiano ronaldo";
 
 // console.log(getAllStats(73111, apiKEY));
 
@@ -182,6 +182,7 @@ const getDesiredPlayer = function () {
       // player.src = `${photo}`;
       console.log(name, shirt_number, positions);
       console.log(position_name.toLowerCase());
+      console.log(photo);
 
       if (position_name.toLowerCase() == "forward") {
         getStrikerStats(id, apiKEY);
@@ -201,7 +202,34 @@ const getDesiredPlayer = function () {
     });
 };
 
-getDesiredPlayer();
+// getDesiredPlayer();
+
+const getPlayerClub = function (playerId) {
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Host": "sportscore1.p.rapidapi.com",
+      "X-RapidAPI-Key": apiKEY,
+    },
+  };
+
+  fetch(
+    "https://sportscore1.p.rapidapi.com/players/" + playerId + "/teams?page=1",
+    options
+  )
+    .then((response) => response.json())
+    .then((response) => {
+      const { data } = response;
+      if (!Array.isArray(data)) {
+        console.log(data);
+        console.log(data.logo);
+      } else {
+        console.log(data[0]);
+        console.log(data[0].logo);
+      }
+    })
+    .catch((err) => console.error(err));
+};
 
 /*
 const getPlayerStat = function (id) {
@@ -264,32 +292,3 @@ const getPlayerStat = function (id) {
     });
 };
 */
-
-const getPlayerClub = function (playerId) {
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Host": "sportscore1.p.rapidapi.com",
-      "X-RapidAPI-Key": apiKEY,
-    },
-  };
-
-  fetch(
-    "https://sportscore1.p.rapidapi.com/players/" + playerId + "/teams?page=1",
-    options
-  )
-    .then((response) => response.json())
-    .then((response) => {
-      const { data } = response;
-      if (!Array.isArray(data)) {
-        console.log(data);
-        console.log(data.logo);
-      } else {
-        console.log(data[0]);
-        console.log(data[0].logo);
-      }
-      // console.log(data);
-      // console.log(data[0].logo);
-    })
-    .catch((err) => console.error(err));
-};
