@@ -28,19 +28,125 @@ const getStatsFromFieldName = function (competion, fieldName) {
   return competion.find((item) => item.group_name.toLowerCase() === fieldName);
 };
 
-const getAllStats = function (id, apikey) {};
+const getAllStats = function (id, apikey) {
+  return fetch(
+    "https://sportscore1.p.rapidapi.com/players/" + id + "/statistics",
+    {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "sportscore1.p.rapidapi.com",
+        "x-rapidapi-key": apikey,
+      },
+    }
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .then((info) => {
+      const { data } = info;
+      //console.log(data);
+      const currentSeasonStats = data.filter((obj) =>
+        obj.season.slug.startsWith("2021-2022")
+      );
+      const getListOfLeagues = currentSeasonStats.map(
+        (competion) => competion.season.name
+      );
+      // console.log(getListOfLeagues);
+      const competitionName = getListOfLeagues[0];
+      const statsForSpecificCompetion = data.filter(
+        (obj) =>
+          obj.season.slug.startsWith("2021") &&
+          obj.season.name
+            .toLowerCase()
+            .startsWith(competitionName.toLocaleLowerCase().slice(0, 2))
+      );
 
-const getStrikerStats = function () {
-  getAllStats();
-  console.log(details);
+      // console.log(statsForSpecificCompetion);
+
+      const [{ details }] = statsForSpecificCompetion;
+      // console.log(details);
+
+      return details;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };
-const getDefenderStats = function () {};
-const getMidfielderStats = function () {};
-const getGoalieStats = function () {};
 
-const desiredPlayerName = "edouard mendy";
+const getStrikerStats = function (id, apikey) {
+  const stats = getAllStats(id, apikey);
+  stats.then((response) => {
+    const matchesStats = getStatsFromFieldName(response, "matches");
+    const attackingStats = getStatsFromFieldName(response, "attacking");
+    const defendingStats = getStatsFromFieldName(response, "defending");
+    const pasingStats = getStatsFromFieldName(response, "passes");
+    const foulStats = getStatsFromFieldName(response, "cards");
+    const otherStats = getStatsFromFieldName(response, "other (per game)");
 
-console.log(getAllStats(73111, apiKEY));
+    console.log(attackingStats);
+    console.log(attackingStats.group_name);
+  });
+};
+
+// getStrikerStats();
+
+const getDefenderStats = function (id, apikey) {
+  const stats = getAllStats(id, apikey);
+  stats.then((response) => {
+    const matchesStats = getStatsFromFieldName(response, "matches");
+    const attackingStats = getStatsFromFieldName(response, "attacking");
+    const defendingStats = getStatsFromFieldName(response, "defending");
+    const pasingStats = getStatsFromFieldName(response, "passes");
+    const foulStats = getStatsFromFieldName(response, "cards");
+    const otherStats = getStatsFromFieldName(response, "other (per game)");
+
+    console.log(defendingStats);
+    console.log(defendingStats.group_name);
+  });
+};
+
+// getDefenderStats();
+
+const getMidfielderStats = function (id, apikey) {
+  const stats = getAllStats(id, apikey);
+  stats.then((response) => {
+    const matchesStats = getStatsFromFieldName(response, "matches");
+    const attackingStats = getStatsFromFieldName(response, "attacking");
+    const defendingStats = getStatsFromFieldName(response, "defending");
+    const pasingStats = getStatsFromFieldName(response, "passes");
+    const foulStats = getStatsFromFieldName(response, "cards");
+    const otherStats = getStatsFromFieldName(response, "other (per game)");
+
+    console.log(pasingStats);
+    console.log(pasingStats.group_name);
+  });
+};
+
+const getGoalieStats = function (id, apikey) {
+  const stats = getAllStats(id, apikey);
+  stats.then((response) => {
+    const matchesStats = getStatsFromFieldName(response, "matches");
+    const goalKeepingStats = getStatsFromFieldName(response, "goalkeeping");
+    const attackingStats = getStatsFromFieldName(response, "attacking");
+    const defendingStats = getStatsFromFieldName(response, "defending");
+    const pasingStats = getStatsFromFieldName(response, "passes");
+    const foulStats = getStatsFromFieldName(response, "cards");
+    const otherStats = getStatsFromFieldName(response, "other (per game)");
+
+    console.log(goalKeepingStats);
+    console.log(goalKeepingStats.group_name);
+  });
+};
+
+// getGoalieStats(73111, apiKEY);
+
+// const desiredPlayerName = "lionel messi";
+// const desiredPlayerName = "mason mountt";
+// const desiredPlayerName = "thiago silva";
+
+const desiredPlayerName = "eden hazard";
+
+// console.log(getAllStats(73111, apiKEY));
 
 const getDesiredPlayer = function () {
   fetch(
@@ -64,7 +170,7 @@ const getDesiredPlayer = function () {
         (player) =>
           player.slug.split("-").join(" ").toLowerCase() === desiredPlayerName
       );
-      console.log(playerInfo);
+      // console.log(playerInfo);
 
       // console.log(playerInfo.slug);
       // console.log(playerInfo.slug.split("-").join(" "));
@@ -74,16 +180,30 @@ const getDesiredPlayer = function () {
       //console.table(playerId);
       // console.log(response.data);
       // player.src = `${photo}`;
-      console.log(name, shirt_number, positions, position_name);
-      checkIfArray(positions.main);
-      getPlayerClub(id);
-      getPlayerStat(id);
+      console.log(name, shirt_number, positions);
+      console.log(position_name.toLowerCase());
+
+      if (position_name.toLowerCase() == "forward") {
+        getStrikerStats(id, apiKEY);
+      } else if (position_name.toLowerCase() == "midfielder") {
+        getMidfielderStats(id, apiKEY);
+      } else if (position_name.toLowerCase() == "defender") {
+        getDefenderStats(id, apiKEY);
+      } else {
+        getGoalieStats(id, apiKEY);
+      }
+      // checkIfArray(positions.main);
+      // getPlayerClub(id);
+      // getPlayerStat(id);
     })
     .catch((err) => {
       console.error(err);
     });
 };
 
+getDesiredPlayer();
+
+/*
 const getPlayerStat = function (id) {
   fetch("https://sportscore1.p.rapidapi.com/players/" + id + "/statistics", {
     method: "GET",
@@ -143,6 +263,7 @@ const getPlayerStat = function (id) {
       console.error(err);
     });
 };
+*/
 
 const getPlayerClub = function (playerId) {
   const options = {
@@ -172,5 +293,3 @@ const getPlayerClub = function (playerId) {
     })
     .catch((err) => console.error(err));
 };
-
-// getDesiredPlayer();
