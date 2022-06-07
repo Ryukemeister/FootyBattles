@@ -4,7 +4,19 @@ import { apiKey, apiKEY, apikey } from "./utils.js";
 const toggleBtn = document.querySelector(".hamburger-icon");
 const crossBtn = document.querySelector(".cross-icon");
 const sidebar = document.querySelector(".sidebar");
-const player = document.querySelector(".player-image");
+const playerImage = document.querySelector(".player-picture");
+const playerPosition = document.querySelector(".player-position");
+const playerClub = document.querySelector(".club-picture");
+const playerJerseyNumber = document.querySelector(".player-jersey-number");
+const playerName = document.querySelector(".player-name");
+
+/*
+console.log(playerName.textContent.toUpperCase());
+console.log(playerImage);
+console.log(playerPosition.textContent);
+console.log(playerClub.src);
+console.log(playerJerseyNumber.textContent);
+*/
 
 toggleBtn.addEventListener("click", function () {
   sidebar.classList.add("active");
@@ -18,14 +30,24 @@ const checkIfArray = function (el) {
   // Another way to check if the el is not is the instance of method
   // if(el instanceof Array)
   if (!Array.isArray(el)) {
-    console.log(el);
+    return el;
   } else {
-    console.log(el[0]);
+    return el[0];
   }
 };
 
 const getStatsFromFieldName = function (competion, fieldName) {
   return competion.find((item) => item.group_name.toLowerCase() === fieldName);
+};
+
+const updatePlayerDetails = function (name, img, pos, number, club) {
+  playerName.textContent = name.toUpperCase();
+  playerImage.src = img;
+  playerPosition.textContent = pos;
+  //  playerClub.src = club;
+  playerJerseyNumber.textContent = number;
+  // playersClubImage(id);
+  // getPlayerClub(id);
 };
 
 const getAllStats = function (id, apikey) {
@@ -180,20 +202,32 @@ const getDesiredPlayer = function () {
       //console.table(playerId);
       // console.log(response.data);
       // player.src = `${photo}`;
+      const playerPos = checkIfArray(positions.main);
+
       console.log(name, shirt_number, positions);
       console.log(position_name.toLowerCase());
       console.log(photo);
+      console.log(playerPos);
+      console.log(id);
 
       if (position_name.toLowerCase() == "forward") {
         getStrikerStats(id, apiKEY);
+        updatePlayerDetails(name, photo, playerPos, shirt_number);
+        getPlayerClub(id);
       } else if (position_name.toLowerCase() == "midfielder") {
         getMidfielderStats(id, apiKEY);
+        updatePlayerDetails(name, photo, playerPos, shirt_number);
+        getPlayerClub(id);
       } else if (position_name.toLowerCase() == "defender") {
         getDefenderStats(id, apiKEY);
+        updatePlayerDetails(name, photo, playerPos, shirt_number);
+        getPlayerClub(id);
       } else {
         getGoalieStats(id, apiKEY);
+        updatePlayerDetails(name, photo, playerPos, shirt_number);
+        getPlayerClub(id);
       }
-      // checkIfArray(positions.main);
+
       // getPlayerClub(id);
       // getPlayerStat(id);
     })
@@ -221,15 +255,19 @@ const getPlayerClub = function (playerId) {
     .then((response) => {
       const { data } = response;
       if (!Array.isArray(data)) {
-        console.log(data);
+        //console.log(data);
         console.log(data.logo);
+        playerClub.src = data.logo;
       } else {
-        console.log(data[0]);
+        //console.log(data[0]);
         console.log(data[0].logo);
+        playerClub.src = data[0].logo;
       }
     })
     .catch((err) => console.error(err));
 };
+
+// console.log(club);
 
 /*
 const getPlayerStat = function (id) {
@@ -292,3 +330,5 @@ const getPlayerStat = function (id) {
     });
 };
 */
+
+// id = 50428
