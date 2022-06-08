@@ -11,6 +11,10 @@
   grid-template-columns: 45% 55%;
 }
 
+img {
+  image-rendering: crisp-edges;
+}
+
 /*
 .hero-content {
   display: flex;

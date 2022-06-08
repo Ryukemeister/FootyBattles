@@ -166,7 +166,7 @@ const getGoalieStats = function (id, apikey) {
 // const desiredPlayerName = "mason mountt";
 // const desiredPlayerName = "thiago silva";
 
-const desiredPlayerName = "cristiano ronaldo";
+const desiredPlayerName = "karim benzema";
 
 // console.log(getAllStats(73111, apiKEY));
 
@@ -213,19 +213,19 @@ const getDesiredPlayer = function () {
       if (position_name.toLowerCase() == "forward") {
         getStrikerStats(id, apiKEY);
         updatePlayerDetails(name, photo, playerPos, shirt_number);
-        getPlayerClub(id);
+        getPlayersClubFromId(id);
       } else if (position_name.toLowerCase() == "midfielder") {
         getMidfielderStats(id, apiKEY);
         updatePlayerDetails(name, photo, playerPos, shirt_number);
-        getPlayerClub(id);
+        getPlayersClubFromId(id);
       } else if (position_name.toLowerCase() == "defender") {
         getDefenderStats(id, apiKEY);
         updatePlayerDetails(name, photo, playerPos, shirt_number);
-        getPlayerClub(id);
+        getPlayersClubFromId(id);
       } else {
         getGoalieStats(id, apiKEY);
         updatePlayerDetails(name, photo, playerPos, shirt_number);
-        getPlayerClub(id);
+        getPlayersClubFromId(id);
       }
 
       // getPlayerClub(id);
@@ -236,7 +236,7 @@ const getDesiredPlayer = function () {
     });
 };
 
-// getDesiredPlayer();
+getDesiredPlayer();
 
 const getPlayerClub = function (playerId) {
   const options = {
@@ -267,6 +267,26 @@ const getPlayerClub = function (playerId) {
     .catch((err) => console.error(err));
 };
 
+const getPlayersClubFromId = async function (playerId) {
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Host": "sportscore1.p.rapidapi.com",
+      "X-RapidAPI-Key": apiKEY,
+    },
+  };
+
+  const response = await fetch(
+    "https://sportscore1.p.rapidapi.com/players/" + playerId + "/teams?page=1",
+    options
+  );
+  const result = await response.json();
+  const { data } = result;
+  playerClub.src = data[0].logo;
+  console.log(data);
+};
+
+// getPlayersClubFromId(67899);
 // console.log(club);
 
 /*
