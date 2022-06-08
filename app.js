@@ -166,7 +166,7 @@ const getGoalieStats = function (id, apikey) {
 // const desiredPlayerName = "mason mountt";
 // const desiredPlayerName = "thiago silva";
 
-const desiredPlayerName = "karim benzema";
+const desiredPlayerName = "lionel messi";
 
 // console.log(getAllStats(73111, apiKEY));
 
@@ -236,8 +236,28 @@ const getDesiredPlayer = function () {
     });
 };
 
-getDesiredPlayer();
+// getDesiredPlayer();
 
+const getPlayersClubFromId = async function (playerId) {
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Host": "sportscore1.p.rapidapi.com",
+      "X-RapidAPI-Key": apiKEY,
+    },
+  };
+
+  const response = await fetch(
+    "https://sportscore1.p.rapidapi.com/players/" + playerId + "/teams?page=1",
+    options
+  );
+  const result = await response.json();
+  const { data } = result;
+  playerClub.src = data[0].logo;
+  console.log(data);
+};
+
+/*
 const getPlayerClub = function (playerId) {
   const options = {
     method: "GET",
@@ -266,25 +286,7 @@ const getPlayerClub = function (playerId) {
     })
     .catch((err) => console.error(err));
 };
-
-const getPlayersClubFromId = async function (playerId) {
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Host": "sportscore1.p.rapidapi.com",
-      "X-RapidAPI-Key": apiKEY,
-    },
-  };
-
-  const response = await fetch(
-    "https://sportscore1.p.rapidapi.com/players/" + playerId + "/teams?page=1",
-    options
-  );
-  const result = await response.json();
-  const { data } = result;
-  playerClub.src = data[0].logo;
-  console.log(data);
-};
+*/
 
 // getPlayersClubFromId(67899);
 // console.log(club);
