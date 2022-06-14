@@ -249,7 +249,7 @@ li {
   margin-bottom: 0;
   font-size: 18px;
   margin-left: 25px;
-  /*  border: 2px solid red;*/
+  border: 2px solid red;
 }
 
 .athlete-dribbles {
@@ -260,7 +260,7 @@ li {
   margin-bottom: 0;
   font-size: 18px;
   margin-left: 25px;
-  /*  border: 2px solid red;*/
+  border: 2px solid red;
 }
 
 .athlete-assists {
