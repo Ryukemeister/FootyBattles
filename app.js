@@ -1,5 +1,5 @@
 "use strict";
-import { apiKey, apiKEY, apikey } from "./utils.js";
+import { apiKey, apiKEY, APIKEY } from "./utils.js";
 
 const toggleBtn = document.querySelector(".hamburger-icon");
 const crossBtn = document.querySelector(".cross-icon");
@@ -9,6 +9,8 @@ const playerPosition = document.querySelector(".player-position");
 const playerClub = document.querySelector(".club-picture");
 const playerJerseyNumber = document.querySelector(".player-jersey-number");
 const playerName = document.querySelector(".player-name");
+const playerGoals = document.querySelector(".player-goals");
+const playerAssists = document.querySelector(".player-assists");
 
 /*
 console.log(playerName.textContent.toUpperCase());
@@ -57,7 +59,7 @@ const getAllStats = function (id, apikey) {
       method: "GET",
       headers: {
         "x-rapidapi-host": "sportscore1.p.rapidapi.com",
-        "x-rapidapi-key": apikey,
+        "x-rapidapi-key": APIKEY,
       },
     }
   )
@@ -105,6 +107,9 @@ const getStrikerStats = function (id, apikey) {
     const foulStats = getStatsFromFieldName(response, "cards");
     const otherStats = getStatsFromFieldName(response, "other (per game)");
 
+    playerAssists.innerHTML = pasingStats.assists;
+    playerGoals.innerHTML = attackingStats.goals;
+
     console.log(attackingStats);
     console.log(attackingStats.group_name);
   });
@@ -121,6 +126,9 @@ const getDefenderStats = function (id, apikey) {
     const pasingStats = getStatsFromFieldName(response, "passes");
     const foulStats = getStatsFromFieldName(response, "cards");
     const otherStats = getStatsFromFieldName(response, "other (per game)");
+
+    playerAssists.innerHTML = pasingStats.assists;
+    playerGoals.innerHTML = attackingStats.goals;
 
     console.log(defendingStats);
     console.log(defendingStats.group_name);
@@ -139,8 +147,11 @@ const getMidfielderStats = function (id, apikey) {
     const foulStats = getStatsFromFieldName(response, "cards");
     const otherStats = getStatsFromFieldName(response, "other (per game)");
 
+    playerAssists.innerHTML = pasingStats.assists;
+    playerGoals.innerHTML = attackingStats.goals;
+
     console.log(pasingStats);
-    console.log(pasingStats.group_name);
+    //console.log(pasingStats.group_name);
   });
 };
 
@@ -155,6 +166,9 @@ const getGoalieStats = function (id, apikey) {
     const foulStats = getStatsFromFieldName(response, "cards");
     const otherStats = getStatsFromFieldName(response, "other (per game)");
 
+    playerAssists.innerHTML = pasingStats.assists;
+    playerGoals.innerHTML = attackingStats.goals;
+
     console.log(goalKeepingStats);
     console.log(goalKeepingStats.group_name);
   });
@@ -166,7 +180,7 @@ const getGoalieStats = function (id, apikey) {
 // const desiredPlayerName = "mason mountt";
 // const desiredPlayerName = "thiago silva";
 
-const desiredPlayerName = "lionel messi";
+const desiredPlayerName = "kylian mbappe";
 
 // console.log(getAllStats(73111, apiKEY));
 
@@ -178,7 +192,7 @@ const getDesiredPlayer = function () {
       method: "POST",
       headers: {
         "x-rapidapi-host": "sportscore1.p.rapidapi.com",
-        "x-rapidapi-key": apiKEY,
+        "x-rapidapi-key": APIKEY,
       },
     }
   )
@@ -211,19 +225,19 @@ const getDesiredPlayer = function () {
       console.log(id);
 
       if (position_name.toLowerCase() == "forward") {
-        getStrikerStats(id, apiKEY);
+        getStrikerStats(id, apiKey);
         updatePlayerDetails(name, photo, playerPos, shirt_number);
         getPlayersClubFromId(id);
       } else if (position_name.toLowerCase() == "midfielder") {
-        getMidfielderStats(id, apiKEY);
+        getMidfielderStats(id, apiKey);
         updatePlayerDetails(name, photo, playerPos, shirt_number);
         getPlayersClubFromId(id);
       } else if (position_name.toLowerCase() == "defender") {
-        getDefenderStats(id, apiKEY);
+        getDefenderStats(id, apiKey);
         updatePlayerDetails(name, photo, playerPos, shirt_number);
         getPlayersClubFromId(id);
       } else {
-        getGoalieStats(id, apiKEY);
+        getGoalieStats(id, apiKey);
         updatePlayerDetails(name, photo, playerPos, shirt_number);
         getPlayersClubFromId(id);
       }
@@ -236,14 +250,14 @@ const getDesiredPlayer = function () {
     });
 };
 
-// getDesiredPlayer();
+getDesiredPlayer();
 
 const getPlayersClubFromId = async function (playerId) {
   const options = {
     method: "GET",
     headers: {
       "X-RapidAPI-Host": "sportscore1.p.rapidapi.com",
-      "X-RapidAPI-Key": apiKEY,
+      "X-RapidAPI-Key": APIKEY,
     },
   };
 

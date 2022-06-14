@@ -61,8 +61,10 @@ img {
   margin: auto;
   margin-top: 50px;
   align-items: center;
+  /*width: 250px;*/
+  /*height: 370px;*/
+  height: 400px;
   width: 250px;
-  height: 370px;
   background-image: url(./img/Sc5.jpg);
   background-position: center center;
   background-size: 100% 100%;
@@ -161,8 +163,8 @@ img {
   border: none;
   border-radius: 40px;
   transform: rotate(90deg);
-  width: 60px;
-  margin-top: 50px;
+  width: 80px;
+  margin-top: -40px;
   /*margin-bottom: 150px;*/
 }
 /*
@@ -237,6 +239,54 @@ li {
 .player-image {
   height: 300px;
   width: 300px;
+}
+
+.athlete-goals {
+  color: white;
+  font-family: "Bebas Neue", cursive;
+  font-weight: 300;
+  margin-top: 5px;
+  margin-bottom: 0;
+  font-size: 18px;
+  margin-left: 25px;
+  /*  border: 2px solid red;*/
+}
+
+.athlete-dribbles {
+  color: white;
+  font-family: "Bebas Neue", cursive;
+  font-weight: 300;
+  margin-top: -13px;
+  margin-bottom: 0;
+  font-size: 18px;
+  margin-left: 25px;
+  /*  border: 2px solid red;*/
+}
+
+.athlete-assists {
+  color: white;
+  font-family: "Bebas Neue", cursive;
+  font-weight: 300;
+  margin-top: 0;
+  font-size: 18px;
+  margin-left: 25px;
+}
+
+.athlete-touches {
+  color: white;
+  font-family: "Bebas Neue", cursive;
+  font-weight: 300;
+  margin-top: 0px;
+  margin-bottom: 0;
+  font-size: 18px;
+  margin-left: 25px;
+}
+
+.player-goals,
+.player-assists,
+.player-dribbles,
+.player-touches {
+  margin-right: 10px;
 }
 
 @media screen and (max-width: 480px) {
