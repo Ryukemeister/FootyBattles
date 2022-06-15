@@ -250,7 +250,7 @@ const getDesiredPlayer = function () {
     });
 };
 
-getDesiredPlayer();
+// getDesiredPlayer();
 
 const getPlayersClubFromId = async function (playerId) {
   const options = {

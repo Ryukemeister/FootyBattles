@@ -131,8 +131,8 @@ img {
   font-weight: 600;
   font-size: 30px;
   letter-spacing: 1px;
-  margin-top: 10px;
-  margin-bottom: 2px;
+  margin-top: 3px;
+  margin-bottom: 0;
 }
 
 .detial-separator {
@@ -167,6 +167,31 @@ img {
   margin-top: -40px;
   /*margin-bottom: 150px;*/
 }
+
+/*
+.statistics-separator {
+  background-color: white;
+  height: 1.2px;
+  border: none;
+  border-radius: 40px;
+   transform: rotate(90deg);
+  width: 10px;
+  height: 2px;
+   margin-top: 50px;
+  transform: rotate(90deg);
+  border: 2px solid red;
+}
+*/
+
+.divider {
+  width: 1px;
+  background-color: white;
+  border-radius: 40px;
+  height: 90px;
+  margin-left: 12.5px;
+  margin-top: 12px;
+}
+
 /*
 .scorecard-two {
   display: flex;
@@ -241,6 +266,30 @@ li {
   width: 300px;
 }
 
+.player-statistics-info {
+  display: grid;
+  /* grid-template-columns: 112.5px 25px 112.5px;*/
+  grid-template-columns: 45% 10% 45%;
+}
+
+.left-side-stats {
+  margin-top: 7px;
+  /* border: 2px solid red;*/
+}
+
+.right-side-stats {
+  margin-top: 7px;
+  /* border: 2px solid red;*/
+}
+
+.end-line {
+  background-color: white;
+  height: 0.4px;
+  border: none;
+  width: 24px;
+  margin-top: 13px;
+}
+
 .athlete-goals {
   color: white;
   font-family: "Bebas Neue", cursive;
@@ -249,7 +298,29 @@ li {
   margin-bottom: 0;
   font-size: 18px;
   margin-left: 25px;
-  border: 2px solid red;
+  /* border: 2px solid red;*/
+}
+
+.athletee-goals {
+  color: white;
+  font-family: "Bebas Neue", cursive;
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+  margin-left: 15px;
+  /* border: 2px solid red;*/
+}
+
+.ath-goals {
+  color: white;
+  font-family: "Bebas Neue", cursive;
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+  margin-left: 25px;
+  /* border: 2px solid red;*/
 }
 
 .athlete-dribbles {
@@ -260,7 +331,7 @@ li {
   margin-bottom: 0;
   font-size: 18px;
   margin-left: 25px;
-  border: 2px solid red;
+  /* border: 2px solid red;*/
 }
 
 .athlete-assists {
