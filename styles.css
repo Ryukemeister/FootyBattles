@@ -356,7 +356,8 @@ li {
 .player-goals,
 .player-assists,
 .player-dribbles,
-.player-touches {
+.player-touches,
+.player-matches {
   margin-right: 10px;
 }
 

@@ -11,6 +11,7 @@ const playerJerseyNumber = document.querySelector(".player-jersey-number");
 const playerName = document.querySelector(".player-name");
 const playerGoals = document.querySelector(".player-goals");
 const playerAssists = document.querySelector(".player-assists");
+const playerMatches = document.querySelector(".player-matches");
 
 /*
 console.log(playerName.textContent.toUpperCase());
@@ -107,11 +108,15 @@ const getStrikerStats = function (id, apikey) {
     const foulStats = getStatsFromFieldName(response, "cards");
     const otherStats = getStatsFromFieldName(response, "other (per game)");
 
-    playerAssists.innerHTML = pasingStats.assists;
+    playerMatches.innerHTML = matchesStats.matches_total;
     playerGoals.innerHTML = attackingStats.goals;
+    playerAssists.innerHTML = pasingStats.assists;
 
     console.log(attackingStats);
-    console.log(attackingStats.group_name);
+    console.log(pasingStats);
+    console.log(otherStats);
+    console.log(matchesStats);
+    // console.log(attackingStats.group_name);
   });
 };
 
@@ -127,8 +132,9 @@ const getDefenderStats = function (id, apikey) {
     const foulStats = getStatsFromFieldName(response, "cards");
     const otherStats = getStatsFromFieldName(response, "other (per game)");
 
-    playerAssists.innerHTML = pasingStats.assists;
+    playerMatches.innerHTML = matchesStats.matches_total;
     playerGoals.innerHTML = attackingStats.goals;
+    playerAssists.innerHTML = pasingStats.assists;
 
     console.log(defendingStats);
     console.log(defendingStats.group_name);
@@ -147,8 +153,9 @@ const getMidfielderStats = function (id, apikey) {
     const foulStats = getStatsFromFieldName(response, "cards");
     const otherStats = getStatsFromFieldName(response, "other (per game)");
 
-    playerAssists.innerHTML = pasingStats.assists;
+    playerMatches.innerHTML = matchesStats.matches_total;
     playerGoals.innerHTML = attackingStats.goals;
+    playerAssists.innerHTML = pasingStats.assists;
 
     console.log(pasingStats);
     //console.log(pasingStats.group_name);
@@ -180,7 +187,7 @@ const getGoalieStats = function (id, apikey) {
 // const desiredPlayerName = "mason mountt";
 // const desiredPlayerName = "thiago silva";
 
-const desiredPlayerName = "kylian mbappe";
+const desiredPlayerName = "riyad mahrez";
 
 // console.log(getAllStats(73111, apiKEY));
 
@@ -218,11 +225,11 @@ const getDesiredPlayer = function () {
       // player.src = `${photo}`;
       const playerPos = checkIfArray(positions.main);
 
-      console.log(name, shirt_number, positions);
-      console.log(position_name.toLowerCase());
-      console.log(photo);
-      console.log(playerPos);
-      console.log(id);
+      //console.log(name, shirt_number, positions);
+      //console.log(position_name.toLowerCase());
+      //console.log(photo);
+      //console.log(playerPos);
+      //console.log(id);
 
       if (position_name.toLowerCase() == "forward") {
         getStrikerStats(id, apiKey);
@@ -250,7 +257,7 @@ const getDesiredPlayer = function () {
     });
 };
 
-// getDesiredPlayer();
+//getDesiredPlayer();
 
 const getPlayersClubFromId = async function (playerId) {
   const options = {
@@ -268,7 +275,7 @@ const getPlayersClubFromId = async function (playerId) {
   const result = await response.json();
   const { data } = result;
   playerClub.src = data[0].logo;
-  console.log(data);
+  // console.log(data);
 };
 
 /*
