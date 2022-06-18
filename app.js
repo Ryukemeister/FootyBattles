@@ -4,6 +4,7 @@ import { apiKey, apiKEY, APIKEY } from "./utils.js";
 const toggleBtn = document.querySelector(".hamburger-icon");
 const crossBtn = document.querySelector(".cross-icon");
 const sidebar = document.querySelector(".sidebar");
+
 const playerImage = document.querySelector(".player-picture");
 const playerPosition = document.querySelector(".player-position");
 const playerClub = document.querySelector(".club-picture");
@@ -17,6 +18,14 @@ const playerTouches = document.querySelector(".player-touches");
 const playerBigChances = document.querySelector(".player-big-chances");
 const playerDualsWon = document.querySelector(".player-duals-won");
 const playerDribbles = document.querySelector(".player-dribbles");
+
+const goals = document.querySelector(".goals");
+const assists = document.querySelector(".assists");
+const rate = document.querySelector(".rate");
+const touches = document.querySelector(".touches");
+const shots = document.querySelector(".shots");
+const chances = document.querySelector(".chances");
+const dribbles = document.querySelector(".dribbles");
 
 /*
 console.log(playerName.textContent.toUpperCase());
@@ -117,6 +126,7 @@ const getStrikerStats = function (id, apikey) {
     playerGoals.innerHTML = attackingStats.goals;
     playerAssists.innerHTML = pasingStats.assists;
     playerGoalConversion.innerHTML = attackingStats.more.goal_conversion;
+    // playerGoalConversion.innerHTML = pasingStats.accurate_passes_per_game.slice(6,9);
     playerTouches.innerHTML = pasingStats.touches;
     playerBigChances.innerHTML = pasingStats.big_chance_created;
     playerDualsWon.innerHTML = attackingStats.total_shots_per_game;
@@ -125,15 +135,52 @@ const getStrikerStats = function (id, apikey) {
       3
     );
 
-    console.log(attackingStats);
-    console.log(pasingStats);
-    console.log(otherStats);
-    console.log(matchesStats);
-    // console.log(attackingStats.group_name);
+    //console.log(attackingStats);
+    //console.log(pasingStats);
+    //console.log(otherStats);
+    //console.log(matchesStats);
+    //console.log(attackingStats.group_name);
   });
 };
 
 // getStrikerStats();
+
+const getMidfielderStats = function (id, apikey) {
+  const stats = getAllStats(id, apikey);
+  stats.then((response) => {
+    const matchesStats = getStatsFromFieldName(response, "matches");
+    const attackingStats = getStatsFromFieldName(response, "attacking");
+    const defendingStats = getStatsFromFieldName(response, "defending");
+    const pasingStats = getStatsFromFieldName(response, "passes");
+    const foulStats = getStatsFromFieldName(response, "cards");
+    const otherStats = getStatsFromFieldName(response, "other (per game)");
+
+    playerMatches.innerHTML = matchesStats.matches_total;
+    playerGoals.innerHTML = attackingStats.goals;
+    playerAssists.innerHTML = pasingStats.assists;
+    playerTouches.innerHTML = pasingStats.touches;
+    playerBigChances.innerHTML = pasingStats.big_chance_created;
+    playerDribbles.innerHTML = otherStats.successful_dribbles_per_game.slice(
+      0,
+      3
+    );
+
+    rate.innerHTML = "pass rate";
+    playerGoalConversion.innerHTML = pasingStats.accurate_passes_per_game.slice(
+      6,
+      9
+    );
+
+    shots.innerHTML = "ball lost";
+    playerDualsWon.innerHTML = otherStats.possession_lost;
+
+    // console.log(attackingStats);
+    //console.log(pasingStats);
+    // console.log(otherStats);
+    //console.log(matchesStats);
+    //console.log(pasingStats.group_name);
+  });
+};
 
 const getDefenderStats = function (id, apikey) {
   const stats = getAllStats(id, apikey);
@@ -155,25 +202,6 @@ const getDefenderStats = function (id, apikey) {
 };
 
 // getDefenderStats();
-
-const getMidfielderStats = function (id, apikey) {
-  const stats = getAllStats(id, apikey);
-  stats.then((response) => {
-    const matchesStats = getStatsFromFieldName(response, "matches");
-    const attackingStats = getStatsFromFieldName(response, "attacking");
-    const defendingStats = getStatsFromFieldName(response, "defending");
-    const pasingStats = getStatsFromFieldName(response, "passes");
-    const foulStats = getStatsFromFieldName(response, "cards");
-    const otherStats = getStatsFromFieldName(response, "other (per game)");
-
-    playerMatches.innerHTML = matchesStats.matches_total;
-    playerGoals.innerHTML = attackingStats.goals;
-    playerAssists.innerHTML = pasingStats.assists;
-
-    console.log(pasingStats);
-    //console.log(pasingStats.group_name);
-  });
-};
 
 const getGoalieStats = function (id, apikey) {
   const stats = getAllStats(id, apikey);
@@ -197,10 +225,10 @@ const getGoalieStats = function (id, apikey) {
 // getGoalieStats(73111, apiKEY);
 
 // const desiredPlayerName = "lionel messi";
-// const desiredPlayerName = "mason mountt";
+// const desiredPlayerName = "mason mount";
 // const desiredPlayerName = "thiago silva";
 
-const desiredPlayerName = "sadio mane";
+const desiredPlayerName = "mason mount";
 
 // console.log(getAllStats(73111, apiKEY));
 

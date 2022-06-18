@@ -369,10 +369,13 @@ li {
 .player-touches,
 .player-matches,
 .player-big-chances,
-.player-duals-won,
 .player-dribbles,
 .player-goal-conversion {
   margin-right: 5px;
+}
+
+.player-duals-won {
+  margin-right: 8px;
 }
 
 @media screen and (max-width: 480px) {
