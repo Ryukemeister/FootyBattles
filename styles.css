@@ -308,7 +308,7 @@ li {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 18px;
-  margin-left: 15px;
+  margin-left: 5px;
   /* border: 2px solid red;*/
 }
 
@@ -319,9 +319,19 @@ li {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 18px;
-  margin-left: 25px;
+  margin-left: 15px;
   /* border: 2px solid red;*/
 }
+
+/*
+.player-goal-conversion {
+  font-size: 13px;
+}
+
+.conversion {
+  font-size: 14px;
+}
+*/
 
 .athlete-dribbles {
   color: white;
@@ -357,8 +367,12 @@ li {
 .player-assists,
 .player-dribbles,
 .player-touches,
-.player-matches {
-  margin-right: 10px;
+.player-matches,
+.player-big-chances,
+.player-duals-won,
+.player-dribbles,
+.player-goal-conversion {
+  margin-right: 5px;
 }
 
 @media screen and (max-width: 480px) {

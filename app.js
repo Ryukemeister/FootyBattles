@@ -12,6 +12,11 @@ const playerName = document.querySelector(".player-name");
 const playerGoals = document.querySelector(".player-goals");
 const playerAssists = document.querySelector(".player-assists");
 const playerMatches = document.querySelector(".player-matches");
+const playerGoalConversion = document.querySelector(".player-goal-conversion");
+const playerTouches = document.querySelector(".player-touches");
+const playerBigChances = document.querySelector(".player-big-chances");
+const playerDualsWon = document.querySelector(".player-duals-won");
+const playerDribbles = document.querySelector(".player-dribbles");
 
 /*
 console.log(playerName.textContent.toUpperCase());
@@ -111,6 +116,14 @@ const getStrikerStats = function (id, apikey) {
     playerMatches.innerHTML = matchesStats.matches_total;
     playerGoals.innerHTML = attackingStats.goals;
     playerAssists.innerHTML = pasingStats.assists;
+    playerGoalConversion.innerHTML = attackingStats.more.goal_conversion;
+    playerTouches.innerHTML = pasingStats.touches;
+    playerBigChances.innerHTML = pasingStats.big_chance_created;
+    playerDualsWon.innerHTML = attackingStats.total_shots_per_game;
+    playerDribbles.innerHTML = otherStats.successful_dribbles_per_game.slice(
+      0,
+      3
+    );
 
     console.log(attackingStats);
     console.log(pasingStats);
@@ -187,7 +200,7 @@ const getGoalieStats = function (id, apikey) {
 // const desiredPlayerName = "mason mountt";
 // const desiredPlayerName = "thiago silva";
 
-const desiredPlayerName = "riyad mahrez";
+const desiredPlayerName = "sadio mane";
 
 // console.log(getAllStats(73111, apiKEY));
 
@@ -257,7 +270,7 @@ const getDesiredPlayer = function () {
     });
 };
 
-//getDesiredPlayer();
+// getDesiredPlayer();
 
 const getPlayersClubFromId = async function (playerId) {
   const options = {
