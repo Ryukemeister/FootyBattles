@@ -126,7 +126,6 @@ const getStrikerStats = function (id, apikey) {
     playerGoals.innerHTML = attackingStats.goals;
     playerAssists.innerHTML = pasingStats.assists;
     playerGoalConversion.innerHTML = attackingStats.more.goal_conversion;
-    // playerGoalConversion.innerHTML = pasingStats.accurate_passes_per_game.slice(6,9);
     playerTouches.innerHTML = pasingStats.touches;
     playerBigChances.innerHTML = pasingStats.big_chance_created;
     playerDualsWon.innerHTML = attackingStats.total_shots_per_game;
@@ -134,12 +133,6 @@ const getStrikerStats = function (id, apikey) {
       0,
       3
     );
-
-    //console.log(attackingStats);
-    //console.log(pasingStats);
-    //console.log(otherStats);
-    //console.log(matchesStats);
-    //console.log(attackingStats.group_name);
   });
 };
 
@@ -196,8 +189,20 @@ const getDefenderStats = function (id, apikey) {
     playerGoals.innerHTML = attackingStats.goals;
     playerAssists.innerHTML = pasingStats.assists;
 
-    console.log(defendingStats);
-    console.log(defendingStats.group_name);
+    rate.innerHTML = "duels won";
+    playerGoalConversion.innerHTML = otherStats.duels_won_per_game.slice(0, 3);
+
+    touches.innerHTML = "intercepts";
+    playerTouches.innerHTML = defendingStats.interceptions_per_game;
+
+    shots.innerHTML = "clearances";
+    playerDualsWon.innerHTML = defendingStats.total_clearances_per_game;
+
+    chances.innerHTML = "ball lost";
+    playerBigChances.innerHTML = otherStats.possession_lost;
+
+    dribbles.innerHTML = "errors";
+    playerDribbles.innerHTML = defendingStats.error_lead_toa_goal;
   });
 };
 
@@ -214,11 +219,35 @@ const getGoalieStats = function (id, apikey) {
     const foulStats = getStatsFromFieldName(response, "cards");
     const otherStats = getStatsFromFieldName(response, "other (per game)");
 
-    playerAssists.innerHTML = pasingStats.assists;
-    playerGoals.innerHTML = attackingStats.goals;
+    playerMatches.innerHTML = matchesStats.matches_total;
 
-    console.log(goalKeepingStats);
-    console.log(goalKeepingStats.group_name);
+    goals.innerHTML = "clean sheet";
+    playerGoals.innerHTML = defendingStats.clean_sheets;
+
+    assists.innerHTML = "saves";
+    playerAssists.innerHTML = goalKeepingStats.more.total_saves;
+
+    rate.innerHTML = "conceded";
+    playerGoalConversion.innerHTML = goalKeepingStats.more.goals_conceded;
+
+    touches.innerHTML = "errors";
+    playerTouches.innerHTML = defendingStats.error_lead_toa_goal;
+
+    shots.innerHTML = "touches";
+    playerDualsWon.innerHTML = pasingStats.touches;
+
+    chances.innerHTML = "ball lost";
+    playerBigChances.innerHTML = otherStats.possession_lost;
+
+    dribbles.innerHTML = "duels won";
+    playerDribbles.innerHTML = otherStats.aerial_duels_won_per_game.slice(5, 8);
+
+    //console.log(goalKeepingStats);
+    //console.log(otherStats);
+    //console.log(matchesStats);
+    //console.log(pasingStats);
+    //console.log(defendingStats);
+    //console.log(goalKeepingStats.group_name);
   });
 };
 
@@ -228,7 +257,7 @@ const getGoalieStats = function (id, apikey) {
 // const desiredPlayerName = "mason mount";
 // const desiredPlayerName = "thiago silva";
 
-const desiredPlayerName = "mason mount";
+const desiredPlayerName = "edouard mendy";
 
 // console.log(getAllStats(73111, apiKEY));
 
