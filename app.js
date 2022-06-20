@@ -166,12 +166,6 @@ const getMidfielderStats = function (id, apikey) {
 
     shots.innerHTML = "ball lost";
     playerDualsWon.innerHTML = otherStats.possession_lost;
-
-    // console.log(attackingStats);
-    //console.log(pasingStats);
-    // console.log(otherStats);
-    //console.log(matchesStats);
-    //console.log(pasingStats.group_name);
   });
 };
 
