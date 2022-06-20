@@ -27,6 +27,10 @@ const shots = document.querySelector(".shots");
 const chances = document.querySelector(".chances");
 const dribbles = document.querySelector(".dribbles");
 
+const searcBoxOne = document.querySelector(".search-box-1");
+const searcBoxTwo = document.querySelector(".search-box-2");
+// const btn = document.querySelector(".ok");
+
 /*
 console.log(playerName.textContent.toUpperCase());
 console.log(playerImage);

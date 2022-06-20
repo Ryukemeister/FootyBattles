@@ -9,6 +9,14 @@ body {
   grid-template-columns: 10% 90%;
 }
 
+.scorecard {
+  margin-top: 45px;
+}
+
+.nav-toggle {
+  /* border: 2px solid red;*/
+}
+
 .hamburger {
   display: flex;
   margin-left: 75px;
@@ -16,6 +24,7 @@ body {
   width: 55px;
   height: 55px;
   cursor: pointer;
+  /* border: 2px solid red;*/
 }
 
 img {
@@ -25,33 +34,30 @@ img {
 .scorecard-separator {
   margin-top: 3.5rem;
   margin-bottom: -5.5rem;
+  margin-right: 5rem;
+  margin-left: 5rem;
   height: 65vh;
   background: black;
 }
 
+.right-section {
+  /*  border: 2px solid red;*/
+  align-items: center;
+}
 .scorecard {
-  margin-top: 100px;
+  display: grid;
+  grid-template-columns: 45% 10% 45%;
+  margin: auto;
+  margin-top: 7%;
+  /*display: flex;
+  justify-content: center;
+  border: 2px solid red;
+  align-items: center;*/
 }
 
 .scorecards {
   display: flex;
 }
-
-/*
-.scorecard-one {
-  display: flex;
-  margin: auto;
-  margin-top: 50px;
-  align-items: center;
-  width: 250px;
-  height: 370px;
-  background-image: url(./img/Sc5.jpg);
-  background-position: center center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  border: 2px solid red
-}
-*/
 
 .scorecard-one,
 .scorecard-two {
@@ -70,6 +76,14 @@ img {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   /* border: 2px solid red; */
+}
+
+.search-box-1,
+.search-box-2 {
+  border: 1.5px solid black;
+  border-radius: 50px;
+  padding: 6px 15px;
+  font-size: 17px;
 }
 
 .player-info {
