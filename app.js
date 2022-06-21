@@ -27,9 +27,16 @@ const shots = document.querySelector(".shots");
 const chances = document.querySelector(".chances");
 const dribbles = document.querySelector(".dribbles");
 
-const searcBoxOne = document.querySelector(".search-box-1");
-const searcBoxTwo = document.querySelector(".search-box-2");
-// const btn = document.querySelector(".ok");
+const searchBoxOne = document.querySelector(".search-box-1");
+const searchBoxTwo = document.querySelector(".search-box-2");
+
+const btn = document.querySelector(".search-icon-1");
+
+btn.addEventListener("click", function () {
+  console.log(searchBoxOne.value.toLowerCase());
+  // alert(`The following player is ${searchBoxOne.value.toLowerCase()}`);
+  searchBoxOne.innerHTML = "";
+});
 
 /*
 console.log(playerName.textContent.toUpperCase());
