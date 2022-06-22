@@ -32,19 +32,11 @@ const searchBoxTwo = document.querySelector(".search-box-2");
 
 const btn = document.querySelector(".search-icon-1");
 
-btn.addEventListener("click", function () {
-  console.log(searchBoxOne.value.toLowerCase());
-  // alert(`The following player is ${searchBoxOne.value.toLowerCase()}`);
-  searchBoxOne.innerHTML = "";
+btn.addEventListener("click", function (e) {
+  // console.log(searchBoxOne.value.toLowerCase());
+  getDesiredPlayer(searchBoxOne.value.toLowerCase());
+  searchBoxOne.value = "";
 });
-
-/*
-console.log(playerName.textContent.toUpperCase());
-console.log(playerImage);
-console.log(playerPosition.textContent);
-console.log(playerClub.src);
-console.log(playerJerseyNumber.textContent);
-*/
 
 toggleBtn.addEventListener("click", function () {
   sidebar.classList.add("active");
@@ -85,7 +77,7 @@ const getAllStats = function (id, apikey) {
       method: "GET",
       headers: {
         "x-rapidapi-host": "sportscore1.p.rapidapi.com",
-        "x-rapidapi-key": APIKEY,
+        "x-rapidapi-key": apikey,
       },
     }
   )
@@ -262,11 +254,11 @@ const getGoalieStats = function (id, apikey) {
 // const desiredPlayerName = "mason mount";
 // const desiredPlayerName = "thiago silva";
 
-const desiredPlayerName = "edouard mendy";
+// const desiredPlayerName = "edouard mendy";
 
 // console.log(getAllStats(73111, apiKEY));
 
-const getDesiredPlayer = function () {
+const getDesiredPlayer = function (desiredPlayerName) {
   fetch(
     "https://sportscore1.p.rapidapi.com/players/search?locale=en&name=" +
       desiredPlayerName,
@@ -274,7 +266,7 @@ const getDesiredPlayer = function () {
       method: "POST",
       headers: {
         "x-rapidapi-host": "sportscore1.p.rapidapi.com",
-        "x-rapidapi-key": APIKEY,
+        "x-rapidapi-key": apiKey,
       },
     }
   )
@@ -332,14 +324,14 @@ const getDesiredPlayer = function () {
     });
 };
 
-// getDesiredPlayer();
+// getDesiredPlayer("lionel messi");
 
 const getPlayersClubFromId = async function (playerId) {
   const options = {
     method: "GET",
     headers: {
       "X-RapidAPI-Host": "sportscore1.p.rapidapi.com",
-      "X-RapidAPI-Key": APIKEY,
+      "X-RapidAPI-Key": apiKey,
     },
   };
 
