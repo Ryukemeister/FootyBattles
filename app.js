@@ -33,9 +33,15 @@ const searchBoxTwo = document.querySelector(".search-box-2");
 const btn = document.querySelector(".search-icon-1");
 
 btn.addEventListener("click", function (e) {
-  // console.log(searchBoxOne.value.toLowerCase());
   getDesiredPlayer(searchBoxOne.value.toLowerCase());
   searchBoxOne.value = "";
+  const displayeMessage = setTimeout(function () {
+    document
+      .querySelector(".scorecard-one")
+      .classList.remove("scorecard-one-invisible");
+  }, 4000);
+  // clearTimeout(displayeMessage);
+  // document.querySelector(".scorecard-one").classList.remove("scorecard-one-invisible");
 });
 
 toggleBtn.addEventListener("click", function () {

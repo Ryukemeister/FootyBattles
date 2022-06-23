@@ -78,6 +78,14 @@ img {
   /* border: 2px solid red; */
 }
 
+.scorecard-one-invisible {
+  display: none;
+}
+
+.scorecard-two-invisible {
+  display: none;
+}
+
 .search-bar {
   border: 1.5px solid black;
   display: flex;
