@@ -5,43 +5,91 @@ const toggleBtn = document.querySelector(".hamburger-icon");
 const crossBtn = document.querySelector(".cross-icon");
 const sidebar = document.querySelector(".sidebar");
 
-const playerImage = document.querySelector(".player-picture");
-const playerPosition = document.querySelector(".player-position");
-const playerClub = document.querySelector(".club-picture");
-const playerJerseyNumber = document.querySelector(".player-jersey-number");
-const playerName = document.querySelector(".player-name");
-const playerGoals = document.querySelector(".player-goals");
-const playerAssists = document.querySelector(".player-assists");
-const playerMatches = document.querySelector(".player-matches");
-const playerGoalConversion = document.querySelector(".player-goal-conversion");
-const playerTouches = document.querySelector(".player-touches");
-const playerBigChances = document.querySelector(".player-big-chances");
-const playerDualsWon = document.querySelector(".player-duals-won");
-const playerDribbles = document.querySelector(".player-dribbles");
+// All input fields for the scorecard of left-section
 
-const goals = document.querySelector(".goals");
-const assists = document.querySelector(".assists");
-const rate = document.querySelector(".rate");
-const touches = document.querySelector(".touches");
-const shots = document.querySelector(".shots");
-const chances = document.querySelector(".chances");
-const dribbles = document.querySelector(".dribbles");
+const playerImage1 = document.querySelector(".player-picture");
+const playerPosition1 = document.querySelector(".player-position");
+const playerClub1 = document.querySelector(".club-picture");
+const playerJerseyNumber1 = document.querySelector(".player-jersey-number");
+const playerName1 = document.querySelector(".player-name");
+
+const playerGoals1 = document.querySelector(".player-goals-1");
+const playerAssists1 = document.querySelector(".player-assists-1");
+const playerMatches1 = document.querySelector(".player-matches-1");
+const playerGoalConversion1 = document.querySelector(
+  ".player-goal-conversion-1"
+);
+const playerTouches1 = document.querySelector(".player-touches-1");
+const playerBigChances1 = document.querySelector(".player-big-chances-1");
+const playerDualsWon1 = document.querySelector(".player-duals-won-1");
+const playerDribbles1 = document.querySelector(".player-dribbles-1");
+
+const goals1 = document.querySelector(".goals-1");
+const assists1 = document.querySelector(".assists-1");
+const rate1 = document.querySelector(".rate-1");
+const touches1 = document.querySelector(".touches-1");
+const shots1 = document.querySelector(".shots-1");
+const chances1 = document.querySelector(".chances-1");
+const dribbles1 = document.querySelector(".dribbles-1");
+
+// All input fields for the scorecard of right-section
+
+const playerImage2 = document.querySelector(".player-picture-2");
+const playerPosition2 = document.querySelector(".player-position-2");
+const playerClub2 = document.querySelector(".club-picture-2");
+const playerJerseyNumber2 = document.querySelector(".player-jersey-number-2");
+const playerName2 = document.querySelector(".player-name-2");
+
+const playerGoals2 = document.querySelector(".player-goals-2");
+const playerAssists2 = document.querySelector(".player-assists-2");
+const playerMatches2 = document.querySelector(".player-matches-2");
+const playerGoalConversion2 = document.querySelector(
+  ".player-goal-conversion-2"
+);
+const playerTouches2 = document.querySelector(".player-touches-2");
+const playerBigChances2 = document.querySelector(".player-big-chances-2");
+const playerDualsWon2 = document.querySelector(".player-duals-won-2");
+const playerDribbles2 = document.querySelector(".player-dribbles-2");
+
+const goals2 = document.querySelector(".goals-2");
+const assists2 = document.querySelector(".assists-2");
+const rate2 = document.querySelector(".rate-2");
+const touches2 = document.querySelector(".touches-2");
+const shots2 = document.querySelector(".shots-2");
+const chances2 = document.querySelector(".chances-2");
+const dribbles2 = document.querySelector(".dribbles-2");
+
+// Input search boxes for both search boxes
 
 const searchBoxOne = document.querySelector(".search-box-1");
 const searchBoxTwo = document.querySelector(".search-box-2");
 
-const btn = document.querySelector(".search-icon-1");
+// Buttons for both search boxes
 
-btn.addEventListener("click", function (e) {
-  getDesiredPlayer(searchBoxOne.value.toLowerCase());
+const btnLeft = document.querySelector(".search-icon-1");
+const btnRight = document.querySelector(".search-icon-2");
+
+btnLeft.addEventListener("click", function (e) {
+  getDesiredPlayer(searchBoxOne.value.toLowerCase(), "one");
   searchBoxOne.value = "";
-  const displayeMessage = setTimeout(function () {
+  setTimeout(function () {
     document
       .querySelector(".scorecard-one")
       .classList.remove("scorecard-one-invisible");
   }, 4000);
   // clearTimeout(displayeMessage);
   // document.querySelector(".scorecard-one").classList.remove("scorecard-one-invisible");
+});
+
+btnRight.addEventListener("click", function () {
+  // console.log(searchBoxTwo.value.toLowerCase());
+  getDesiredPlayer(searchBoxTwo.value.toLowerCase(), "two");
+  searchBoxTwo.value = "";
+  setTimeout(function () {
+    document
+      .querySelector(".scorecard-two")
+      .classList.remove("scorecard-two-invisible");
+  }, 4000);
 });
 
 toggleBtn.addEventListener("click", function () {
@@ -66,12 +114,20 @@ const getStatsFromFieldName = function (competion, fieldName) {
   return competion.find((item) => item.group_name.toLowerCase() === fieldName);
 };
 
-const updatePlayerDetails = function (name, img, pos, number, club) {
-  playerName.textContent = name.toUpperCase();
-  playerImage.src = img;
-  playerPosition.textContent = pos;
+const updatePlayerDetails = function (name, img, pos, number, scorecardNumber) {
+  if (scorecardNumber === "one") {
+    playerName1.textContent = name.toUpperCase();
+    playerImage1.src = img;
+    playerPosition1.textContent = pos;
+    playerJerseyNumber1.textContent = number;
+  } else if (scorecardNumber === "two") {
+    playerName2.textContent = name.toUpperCase();
+    playerImage2.src = img;
+    playerPosition2.textContent = pos;
+    playerJerseyNumber2.textContent = number;
+  }
+
   //  playerClub.src = club;
-  playerJerseyNumber.textContent = number;
   // playersClubImage(id);
   // getPlayerClub(id);
 };
@@ -121,7 +177,7 @@ const getAllStats = function (id, apikey) {
     });
 };
 
-const getStrikerStats = function (id, apikey) {
+const getStrikerStats = function (id, apikey, scorecardNumber) {
   const stats = getAllStats(id, apikey);
   stats.then((response) => {
     const matchesStats = getStatsFromFieldName(response, "matches");
@@ -131,23 +187,35 @@ const getStrikerStats = function (id, apikey) {
     const foulStats = getStatsFromFieldName(response, "cards");
     const otherStats = getStatsFromFieldName(response, "other (per game)");
 
-    playerMatches.innerHTML = matchesStats.matches_total;
-    playerGoals.innerHTML = attackingStats.goals;
-    playerAssists.innerHTML = pasingStats.assists;
-    playerGoalConversion.innerHTML = attackingStats.more.goal_conversion;
-    playerTouches.innerHTML = pasingStats.touches;
-    playerBigChances.innerHTML = pasingStats.big_chance_created;
-    playerDualsWon.innerHTML = attackingStats.total_shots_per_game;
-    playerDribbles.innerHTML = otherStats.successful_dribbles_per_game.slice(
-      0,
-      3
-    );
+    if (scorecardNumber === "one") {
+      playerMatches1.innerHTML = matchesStats.matches_total;
+      playerGoals1.innerHTML = attackingStats.goals;
+      playerAssists1.innerHTML = pasingStats.assists;
+      playerGoalConversion1.innerHTML = attackingStats.more.goal_conversion;
+      playerTouches1.innerHTML = pasingStats.touches;
+      playerBigChances1.innerHTML = pasingStats.big_chance_created;
+      playerDualsWon1.innerHTML = attackingStats.total_shots_per_game;
+      playerDribbles1.innerHTML = otherStats.successful_dribbles_per_game.slice(
+        0,
+        3
+      );
+    } else if (scorecardNumber === "two") {
+      playerMatches2.innerHTML = matchesStats.matches_total;
+      playerGoals2.innerHTML = attackingStats.goals;
+      playerAssists2.innerHTML = pasingStats.assists;
+      playerGoalConversion2.innerHTML = attackingStats.more.goal_conversion;
+      playerTouches2.innerHTML = pasingStats.touches;
+      playerBigChances2.innerHTML = pasingStats.big_chance_created;
+      playerDualsWon2.innerHTML = attackingStats.total_shots_per_game;
+      playerDribbles2.innerHTML = otherStats.successful_dribbles_per_game.slice(
+        0,
+        3
+      );
+    }
   });
 };
 
-// getStrikerStats();
-
-const getMidfielderStats = function (id, apikey) {
+const getMidfielderStats = function (id, apikey, scorecardNumber) {
   const stats = getAllStats(id, apikey);
   stats.then((response) => {
     const matchesStats = getStatsFromFieldName(response, "matches");
@@ -157,28 +225,45 @@ const getMidfielderStats = function (id, apikey) {
     const foulStats = getStatsFromFieldName(response, "cards");
     const otherStats = getStatsFromFieldName(response, "other (per game)");
 
-    playerMatches.innerHTML = matchesStats.matches_total;
-    playerGoals.innerHTML = attackingStats.goals;
-    playerAssists.innerHTML = pasingStats.assists;
-    playerTouches.innerHTML = pasingStats.touches;
-    playerBigChances.innerHTML = pasingStats.big_chance_created;
-    playerDribbles.innerHTML = otherStats.successful_dribbles_per_game.slice(
-      0,
-      3
-    );
+    if (scorecardNumber === "one") {
+      playerMatches1.innerHTML = matchesStats.matches_total;
+      playerGoals1.innerHTML = attackingStats.goals;
+      playerAssists1.innerHTML = pasingStats.assists;
+      playerTouches1.innerHTML = pasingStats.touches;
+      playerBigChances1.innerHTML = pasingStats.big_chance_created;
+      playerDribbles1.innerHTML = otherStats.successful_dribbles_per_game.slice(
+        0,
+        3
+      );
 
-    rate.innerHTML = "pass rate";
-    playerGoalConversion.innerHTML = pasingStats.accurate_passes_per_game.slice(
-      6,
-      9
-    );
+      rate1.innerHTML = "pass rate";
+      playerGoalConversion1.innerHTML =
+        pasingStats.accurate_passes_per_game.slice(6, 9);
 
-    shots.innerHTML = "ball lost";
-    playerDualsWon.innerHTML = otherStats.possession_lost;
+      shots1.innerHTML = "ball lost";
+      playerDualsWon1.innerHTML = otherStats.possession_lost;
+    } else if (scorecardNumber === "two") {
+      playerMatches2.innerHTML = matchesStats.matches_total;
+      playerGoals2.innerHTML = attackingStats.goals;
+      playerAssists2.innerHTML = pasingStats.assists;
+      playerTouches2.innerHTML = pasingStats.touches;
+      playerBigChances2.innerHTML = pasingStats.big_chance_created;
+      playerDribbles2.innerHTML = otherStats.successful_dribbles_per_game.slice(
+        0,
+        3
+      );
+
+      rate2.innerHTML = "pass rate";
+      playerGoalConversion2.innerHTML =
+        pasingStats.accurate_passes_per_game.slice(6, 9);
+
+      shots2.innerHTML = "ball lost";
+      playerDualsWon2.innerHTML = otherStats.possession_lost;
+    }
   });
 };
 
-const getDefenderStats = function (id, apikey) {
+const getDefenderStats = function (id, apikey, scorecardNumber) {
   const stats = getAllStats(id, apikey);
   stats.then((response) => {
     const matchesStats = getStatsFromFieldName(response, "matches");
@@ -188,30 +273,55 @@ const getDefenderStats = function (id, apikey) {
     const foulStats = getStatsFromFieldName(response, "cards");
     const otherStats = getStatsFromFieldName(response, "other (per game)");
 
-    playerMatches.innerHTML = matchesStats.matches_total;
-    playerGoals.innerHTML = attackingStats.goals;
-    playerAssists.innerHTML = pasingStats.assists;
+    if (scorecardNumber === "one") {
+      playerMatches1.innerHTML = matchesStats.matches_total;
+      playerGoals1.innerHTML = attackingStats.goals;
+      playerAssists1.innerHTML = pasingStats.assists;
 
-    rate.innerHTML = "duels won";
-    playerGoalConversion.innerHTML = otherStats.duels_won_per_game.slice(0, 3);
+      rate1.innerHTML = "duels won";
+      playerGoalConversion1.innerHTML = otherStats.duels_won_per_game.slice(
+        0,
+        3
+      );
 
-    touches.innerHTML = "intercepts";
-    playerTouches.innerHTML = defendingStats.interceptions_per_game;
+      touches1.innerHTML = "intercepts";
+      playerTouches1.innerHTML = defendingStats.interceptions_per_game;
 
-    shots.innerHTML = "clearances";
-    playerDualsWon.innerHTML = defendingStats.total_clearances_per_game;
+      shots1.innerHTML = "clearances";
+      playerDualsWon1.innerHTML = defendingStats.total_clearances_per_game;
 
-    chances.innerHTML = "ball lost";
-    playerBigChances.innerHTML = otherStats.possession_lost;
+      chances1.innerHTML = "ball lost";
+      playerBigChances1.innerHTML = otherStats.possession_lost;
 
-    dribbles.innerHTML = "errors";
-    playerDribbles.innerHTML = defendingStats.error_lead_toa_goal;
+      dribbles1.innerHTML = "errors";
+      playerDribbles1.innerHTML = defendingStats.error_lead_toa_goal;
+    } else if (scorecardNumber === "two") {
+      playerMatches2.innerHTML = matchesStats.matches_total;
+      playerGoals2.innerHTML = attackingStats.goals;
+      playerAssists2.innerHTML = pasingStats.assists;
+
+      rate2.innerHTML = "duels won";
+      playerGoalConversion2.innerHTML = otherStats.duels_won_per_game.slice(
+        0,
+        3
+      );
+
+      touches2.innerHTML = "intercepts";
+      playerTouches2.innerHTML = defendingStats.interceptions_per_game;
+
+      shots2.innerHTML = "clearances";
+      playerDualsWon2.innerHTML = defendingStats.total_clearances_per_game;
+
+      chances2.innerHTML = "ball lost";
+      playerBigChances2.innerHTML = otherStats.possession_lost;
+
+      dribbles2.innerHTML = "errors";
+      playerDribbles2.innerHTML = defendingStats.error_lead_toa_goal;
+    }
   });
 };
 
-// getDefenderStats();
-
-const getGoalieStats = function (id, apikey) {
+const getGoalieStats = function (id, apikey, scorecardNumber) {
   const stats = getAllStats(id, apikey);
   stats.then((response) => {
     const matchesStats = getStatsFromFieldName(response, "matches");
@@ -222,49 +332,63 @@ const getGoalieStats = function (id, apikey) {
     const foulStats = getStatsFromFieldName(response, "cards");
     const otherStats = getStatsFromFieldName(response, "other (per game)");
 
-    playerMatches.innerHTML = matchesStats.matches_total;
+    if (scorecardNumber === "one") {
+      playerMatches.innerHTML = matchesStats.matches_total;
 
-    goals.innerHTML = "clean sheet";
-    playerGoals.innerHTML = defendingStats.clean_sheets;
+      goals.innerHTML = "clean sheet";
+      playerGoals.innerHTML = defendingStats.clean_sheets;
 
-    assists.innerHTML = "saves";
-    playerAssists.innerHTML = goalKeepingStats.more.total_saves;
+      assists.innerHTML = "saves";
+      playerAssists.innerHTML = goalKeepingStats.more.total_saves;
 
-    rate.innerHTML = "conceded";
-    playerGoalConversion.innerHTML = goalKeepingStats.more.goals_conceded;
+      rate.innerHTML = "conceded";
+      playerGoalConversion.innerHTML = goalKeepingStats.more.goals_conceded;
 
-    touches.innerHTML = "errors";
-    playerTouches.innerHTML = defendingStats.error_lead_toa_goal;
+      touches.innerHTML = "errors";
+      playerTouches.innerHTML = defendingStats.error_lead_toa_goal;
 
-    shots.innerHTML = "touches";
-    playerDualsWon.innerHTML = pasingStats.touches;
+      shots.innerHTML = "touches";
+      playerDualsWon.innerHTML = pasingStats.touches;
 
-    chances.innerHTML = "ball lost";
-    playerBigChances.innerHTML = otherStats.possession_lost;
+      chances.innerHTML = "ball lost";
+      playerBigChances.innerHTML = otherStats.possession_lost;
 
-    dribbles.innerHTML = "duels won";
-    playerDribbles.innerHTML = otherStats.aerial_duels_won_per_game.slice(5, 8);
+      dribbles.innerHTML = "duels won";
+      playerDribbles.innerHTML = otherStats.aerial_duels_won_per_game.slice(
+        5,
+        8
+      );
+    } else if (scorecardNumber === "two") {
+      playerMatches2.innerHTML = matchesStats.matches_total;
 
-    //console.log(goalKeepingStats);
-    //console.log(otherStats);
-    //console.log(matchesStats);
-    //console.log(pasingStats);
-    //console.log(defendingStats);
-    //console.log(goalKeepingStats.group_name);
+      goals2.innerHTML = "clean sheet";
+      playerGoals2.innerHTML = defendingStats.clean_sheets;
+
+      assists2.innerHTML = "saves";
+      playerAssists2.innerHTML = goalKeepingStats.more.total_saves;
+
+      rate2.innerHTML = "conceded";
+      playerGoalConversion2.innerHTML = goalKeepingStats.more.goals_conceded;
+
+      touches2.innerHTML = "errors";
+      playerTouches2.innerHTML = defendingStats.error_lead_toa_goal;
+
+      shots2.innerHTML = "touches";
+      playerDualsWon2.innerHTML = pasingStats.touches;
+
+      chances2.innerHTML = "ball lost";
+      playerBigChances2.innerHTML = otherStats.possession_lost;
+
+      dribbles2.innerHTML = "duels won";
+      playerDribbles2.innerHTML = otherStats.aerial_duels_won_per_game.slice(
+        5,
+        8
+      );
+    }
   });
 };
 
-// getGoalieStats(73111, apiKEY);
-
-// const desiredPlayerName = "lionel messi";
-// const desiredPlayerName = "mason mount";
-// const desiredPlayerName = "thiago silva";
-
-// const desiredPlayerName = "edouard mendy";
-
-// console.log(getAllStats(73111, apiKEY));
-
-const getDesiredPlayer = function (desiredPlayerName) {
+const getDesiredPlayer = function (desiredPlayerName, scorecardNumber) {
   fetch(
     "https://sportscore1.p.rapidapi.com/players/search?locale=en&name=" +
       desiredPlayerName,
@@ -305,21 +429,46 @@ const getDesiredPlayer = function (desiredPlayerName) {
       //console.log(id);
 
       if (position_name.toLowerCase() == "forward") {
-        getStrikerStats(id, apiKey);
-        updatePlayerDetails(name, photo, playerPos, shirt_number);
-        getPlayersClubFromId(id);
+        getStrikerStats(id, apiKey, scorecardNumber);
+        name,
+          updatePlayerDetails(
+            name,
+            photo,
+            playerPos,
+            shirt_number,
+            scorecardNumber
+          );
+        getPlayersClubFromId(id, scorecardNumber);
       } else if (position_name.toLowerCase() == "midfielder") {
-        getMidfielderStats(id, apiKey);
-        updatePlayerDetails(name, photo, playerPos, shirt_number);
-        getPlayersClubFromId(id);
+        getMidfielderStats(id, apiKey, scorecardNumber);
+        updatePlayerDetails(
+          name,
+          photo,
+          playerPos,
+          shirt_number,
+          scorecardNumber
+        );
+        getPlayersClubFromId(id, scorecardNumber);
       } else if (position_name.toLowerCase() == "defender") {
-        getDefenderStats(id, apiKey);
-        updatePlayerDetails(name, photo, playerPos, shirt_number);
-        getPlayersClubFromId(id);
+        getDefenderStats(id, apiKey, scorecardNumber);
+        updatePlayerDetails(
+          name,
+          photo,
+          playerPos,
+          shirt_number,
+          scorecardNumber
+        );
+        getPlayersClubFromId(id, scorecardNumber);
       } else {
-        getGoalieStats(id, apiKey);
-        updatePlayerDetails(name, photo, playerPos, shirt_number);
-        getPlayersClubFromId(id);
+        getGoalieStats(id, apiKey, scorecardNumber);
+        updatePlayerDetails(
+          name,
+          photo,
+          playerPos,
+          shirt_number,
+          scorecardNumber
+        );
+        getPlayersClubFromId(id, scorecardNumber);
       }
 
       // getPlayerClub(id);
@@ -330,9 +479,7 @@ const getDesiredPlayer = function (desiredPlayerName) {
     });
 };
 
-// getDesiredPlayer("lionel messi");
-
-const getPlayersClubFromId = async function (playerId) {
+const getPlayersClubFromId = async function (playerId, scorecardNumber) {
   const options = {
     method: "GET",
     headers: {
@@ -347,7 +494,12 @@ const getPlayersClubFromId = async function (playerId) {
   );
   const result = await response.json();
   const { data } = result;
-  playerClub.src = data[0].logo;
+  if (scorecardNumber === "one") {
+    playerClub1.src = data[0].logo;
+  } else if (scorecardNumber === "two") {
+    playerClub2.src = data[0].logo;
+  }
+
   // console.log(data);
 };
 
