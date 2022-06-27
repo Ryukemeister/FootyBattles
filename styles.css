@@ -234,21 +234,6 @@ img {
   /*margin-bottom: 150px;*/
 }
 
-/*
-.statistics-separator {
-  background-color: white;
-  height: 1.2px;
-  border: none;
-  border-radius: 40px;
-   transform: rotate(90deg);
-  width: 10px;
-  height: 2px;
-   margin-top: 50px;
-  transform: rotate(90deg);
-  border: 2px solid red;
-}
-*/
-
 .divider {
   width: 1px;
   background-color: white;
@@ -257,22 +242,6 @@ img {
   margin-left: 12.5px;
   margin-top: 12px;
 }
-
-/*
-.scorecard-two {
-  display: flex;
-  margin: auto;
-  margin-top: 50px;
-  align-items: center;
-  width: 250px;
-  height: 370px;
-  background-image: url(./img/Sc5.jpg);
-  background-position: center center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  border: 2px solid red;
-}
-*/
 
 .sidebar {
   display: flex;
@@ -388,16 +357,6 @@ li {
   margin-left: 15px;
   /* border: 2px solid red;*/
 }
-
-/*
-.player-goal-conversion {
-  font-size: 13px;
-}
-
-.conversion {
-  font-size: 14px;
-}
-*/
 
 .athlete-dribbles {
   color: white;
@@ -516,24 +475,35 @@ li {
     transition: 200ms;
   }
 
+  .search-bar {
+    margin-top: 3.5rem;
+    margin-left: -7.5rem;
+    padding: 8px;
+    /* width: 230px;*/
+    width: 70vw;
+  }
+
   .scorecard-separator {
+    /*width: 70vw;
     align-self: flex-start;
     margin-top: 2.5rem;
     margin-bottom: 1.5rem;
     height: 0.5px;
-    width: 80vw;
-    margin-left: -120px;
     margin-right: -120px;
+     margin-left: -100px;
+    */
+    display: none;
   }
 
   .scorecard-one {
     display: flex;
+    flex-direction: column;
     margin: auto;
-    margin-top: 50px;
-    margin-left: -4rem;
+    margin-top: 35px;
+    margin-left: -6.7rem;
     align-items: center;
     width: 250px;
-    height: 370px;
+    /*height: 370px;*/
     background-image: url(./img/Sc5.jpg);
     background-position: center center;
     background-size: 100% 100%;
@@ -542,17 +512,29 @@ li {
 
   .scorecard-two {
     display: flex;
+    flex-direction: column;
     margin: auto;
-    margin-top: 0px;
-    margin-left: -4rem;
-    margin-left: -4rem;
+    margin-top: 35px;
+    margin-left: -6.7rem;
     margin-bottom: 50px;
     align-items: center;
     width: 250px;
-    height: 370px;
+    /*height: 370px;*/
     background-image: url(./img/Sc5.jpg);
     background-position: center center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+  }
+
+  .player-data {
+    margin-top: 8px;
+  }
+
+  .score-card-separator {
+    margin-top: 50px;
+    width: 100px;
+    border-radius: 100px;
+    border: 0.7px solid black;
+    background-color: black;
   }
 }
