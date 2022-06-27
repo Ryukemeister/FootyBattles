@@ -5,6 +5,9 @@ const toggleBtn = document.querySelector(".hamburger-icon");
 const crossBtn = document.querySelector(".cross-icon");
 const sidebar = document.querySelector(".sidebar");
 
+const submitBtn = document.getElementById("submittt-btn");
+const searchBtn = document.querySelector(".search-iconnn");
+
 // All input fields for the scorecard of left-section
 
 const playerImage1 = document.querySelector(".player-picture");
@@ -65,11 +68,12 @@ const searchBoxOne = document.querySelector(".search-box-1");
 const searchBoxTwo = document.querySelector(".search-box-2");
 
 // Buttons for both search boxes
+const submitLeft = document.getElementById("submit-btn-left");
+const submitRight = document.getElementById("submit-btn-right");
 
-const btnLeft = document.querySelector(".search-icon-1");
-const btnRight = document.querySelector(".search-icon-2");
-
-btnLeft.addEventListener("click", function (e) {
+// Function for left search bar query submit
+submitLeft.addEventListener("submit", function (e) {
+  e.preventDefault();
   getDesiredPlayer(searchBoxOne.value.toLowerCase(), "one");
   searchBoxOne.value = "";
   setTimeout(function () {
@@ -77,12 +81,11 @@ btnLeft.addEventListener("click", function (e) {
       .querySelector(".scorecard-one")
       .classList.remove("scorecard-one-invisible");
   }, 4000);
-  // clearTimeout(displayeMessage);
-  // document.querySelector(".scorecard-one").classList.remove("scorecard-one-invisible");
 });
 
-btnRight.addEventListener("click", function () {
-  // console.log(searchBoxTwo.value.toLowerCase());
+// Function for right search bar query submit
+submitRight.addEventListener("submit", function (e) {
+  e.preventDefault();
   getDesiredPlayer(searchBoxTwo.value.toLowerCase(), "two");
   searchBoxTwo.value = "";
   setTimeout(function () {

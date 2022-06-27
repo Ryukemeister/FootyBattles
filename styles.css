@@ -83,12 +83,20 @@ img {
   display: none;
 }
 
-.search-bar {
+.search-bar,
+.search-query {
   border: 1.5px solid black;
   display: flex;
   border-radius: 50px;
   padding: 10px;
   width: 300px;
+}
+
+.left-submit,
+.right-submit {
+  border: none;
+  outline: none;
+  background: white;
 }
 
 .search-box-1 {
@@ -110,9 +118,11 @@ img {
   background: black;
   border-radius: 50px;
   padding: 8px;
+  cursor: pointer;
 }
 
-.search-box-2 {
+.search-box-2,
+.search-box-3 {
   border: none;
   flex: 1;
   outline: none;
