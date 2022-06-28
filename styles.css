@@ -484,14 +484,6 @@ li {
   }
 
   .scorecard-separator {
-    /*width: 70vw;
-    align-self: flex-start;
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
-    height: 0.5px;
-    margin-right: -120px;
-     margin-left: -100px;
-    */
     display: none;
   }
 
@@ -532,9 +524,20 @@ li {
 
   .score-card-separator {
     margin-top: 50px;
-    width: 100px;
+    margin-left: -70px;
+    width: 180px;
     border-radius: 100px;
     border: 0.7px solid black;
     background-color: black;
+  }
+
+  /*
+  .scorecard-one-invisible,
+  .scorecard-two-invisible {
+    display: none;
+  }*/
+
+  .right-search-bar {
+    margin-bottom: 3rem;
   }
 }
