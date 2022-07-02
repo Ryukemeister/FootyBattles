@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-container {
+  display: grid;
+  grid-template-columns: 10% 90%;
+  height: 280px;
+  width: 100%;
+  background-color: black;
+  overflow: hidden;
+}
+
+.description-container {
+  /*height: 305px;*/
+  width: 100%;
+  overflow: hidden;
+}
+
+.hamburger-icon {
+  padding: 0;
+  margin: 0;
+  background-image: url("./img/Navigation\ final.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 65px;
+  width: 65px;
+  /* border: 2px solid red;*/
+  cursor: pointer;
+}
+
+.hamburger-menu {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-end;
+}
+
+/*
+.hamburger {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  margin: 0;
+}
+*/
+
+.title {
+  /* border: 2px solid red;*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-title {
+  font-size: 100px;
+  letter-spacing: 25px;
+  color: white;
+  font-family: "Arvo", serif;
+  font-weight: 500;
+}
+
+.underline {
+  display: flex;
+  width: 450px;
+  height: 2.5px;
+  border-radius: 100px;
+  background-color: white;
+  margin-left: 80px;
+  margin-top: 3px;
+}
+
+.desc {
+  margin-left: 80px;
+  font-size: 22px;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  margin-right: 50px;
+  text-align: left;
+  justify-content: left;
+  line-height: 140%;
+  font-family: "Montserrat", sans-serif;
+}
