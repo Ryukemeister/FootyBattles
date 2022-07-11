@@ -128,7 +128,7 @@ li {
 @media screen and (max-width: 480px) {
   .title-container {
     grid-template-columns: 20% 80%;
-    height: 180px;
+    height: 200px;
   }
 
   .sidebar {
@@ -200,6 +200,6 @@ li {
 
   .desc {
     font-size: 21px;
-    margin: 50px 30px;
+    margin: 35px 30px;
   }
 }

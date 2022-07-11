@@ -80,7 +80,7 @@ img {
 
 .scorecard-one-invisible,
 .scorecard-two-invisible {
-  display: none;
+  /*display: none;*/
 }
 
 .search-bar,

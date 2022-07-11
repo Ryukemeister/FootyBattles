@@ -161,7 +161,12 @@ li {
 
 @media screen and (max-width: 480px) {
   .hero-content {
-    margin-top: 3vh;
+    margin-top: 0.2vh;
+  }
+
+  .contents {
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   .hero-img {
@@ -189,7 +194,7 @@ li {
   .description {
     text-align: justify;
     padding-right: 0px;
-    font-size: 25px;
+    font-size: 23px;
     font-weight: normal;
     padding-left: 35px;
     font-family: Georgia, "Times New Roman", Times, serif;
@@ -202,9 +207,11 @@ li {
     margin-right: 0rem;
     margin-top: 1.3rem;
     margin-bottom: 1.5rem;
-    height: 3px;
+    height: 1.7px;
     background: black;
-    border-radius: 120px;
+    color: black;
+    border: none;
+    border-radius: 250px;
     color: black;
   }
 
@@ -215,13 +222,13 @@ li {
 
   .learn-more-btn {
     font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
     padding: 0.5em 0.3em;
     margin-left: 35px;
     background: #f99a92;
-    width: 200px;
-    height: 70px;
+    width: 190px;
+    height: 65px;
     letter-spacing: 0.3px;
     border-radius: 9px;
     border: #f99a92;
