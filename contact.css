@@ -28,6 +28,54 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  height: 100vh;
+  width: 50%;
+  background-color: black;
+  left: -100%;
+  transition: 850ms;
+}
+
+.sidebar.active {
+  left: 0;
+  transition: 500ms;
+}
+
+li {
+  padding: 10px;
+  list-style: none;
+}
+
+.sidebar-menu a {
+  text-decoration: none;
+  font-size: 50px;
+  color: white;
+  font-family: "Bebas Neue", cursive;
+}
+
+.sidebar-menu a:hover {
+  color: #f99a92;
+  transition: 200ms;
+}
+
+.cross img {
+  cursor: pointer;
+  display: flex;
+  justify-self: flex-end;
+  align-self: flex-end;
+  margin-left: 410px;
+  margin-top: -70px;
+  height: 70px;
+  width: 70px;
+  /*border: 2px solid white;*/
+}
+
 .contents {
   /*border: 2px solid red;*/
 }
