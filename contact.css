@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 47% 53%;
+  width: 100vw;
+  height: 100vh;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #000;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+.right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.contents {
+  /*border: 2px solid red;*/
+}
+
+.intro {
+  margin: 0;
+  margin-bottom: 7px;
+  font-size: 65px;
+  font-weight: 300;
+}
+
+.description {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 300;
+}
+
+.socials {
+  /*border: 2px solid red;*/
+  margin-top: 60px;
+  margin-left: 40px;
+}
+
+.socials a {
+  padding-left: 25px;
+  padding-right: 25px;
+  display: inline-block;
+}
+
+.gmail {
+  height: 45px;
+}
+
+.instagram,
+.twitter {
+  height: 42px;
+}
+
+.hamburger-btn {
+  padding: 0;
+  margin: 0;
+  background-image: url("./img/Navigation\ final.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 65px;
+  width: 65px;
+  cursor: pointer;
+  margin-top: 70px;
+  margin-left: -210px;
+  margin-bottom: 80px;
+}
