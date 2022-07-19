@@ -159,13 +159,26 @@ li {
   background: white;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 376px) {
+  .hero-container {
+    height: 100vh;
+    width: 100vw;
+    /*border: 2px solid red;*/
+  }
+
   .hero-content {
     margin-top: 0.2vh;
+    /* display: flex;
+      height: 100vh;
+    width: 100vw;
+    justify-content: center;
+       border: 2px solid red;
+    */
   }
 
   .contents {
     margin-bottom: 0;
+    margin: 0;
     padding-bottom: 0;
   }
 
@@ -176,10 +189,12 @@ li {
   .hamburger {
     width: 60px;
     height: 60px;
+    margin: 2.5rem 0 2.5rem 2.2rem;
     align-self: flex-start;
-    margin-left: 2.2rem;
-    margin-top: 2.5rem;
-    /*margin: 70px;*/
+    /*margin: 70px;
+       border: 2px solid red;
+        align-self: flex-start;
+    */
     cursor: pointer;
   }
 
@@ -198,7 +213,10 @@ li {
     font-weight: normal;
     padding-left: 35px;
     font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: "Montserrat", sans-serif;
     line-height: 140%;
+    letter-spacing: -0.7px;
+    font-weight: 400;
     margin-bottom: 2rem;
   }
 
@@ -222,14 +240,16 @@ li {
 
   .learn-more-btn {
     font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 22px;
     font-weight: 600;
     padding: 0.5em 0.3em;
     margin-left: 35px;
+    margin: 0 0 50px 35px;
     background: #f99a92;
     width: 190px;
     height: 65px;
-    letter-spacing: 0.3px;
+    letter-spacing: 1.2px;
     border-radius: 9px;
     border: #f99a92;
     cursor: pointer;
