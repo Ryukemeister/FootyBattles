@@ -80,6 +80,7 @@ hr {
   font-weight: normal;
   padding-left: 70px;
   font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Montserrat", sans-serif;
   line-height: 140%;
   margin-bottom: 2rem;
 }
@@ -91,6 +92,7 @@ hr {
 
 .learn-more-btn {
   font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 600;
   padding: 0.5em 0.3em;
@@ -98,7 +100,7 @@ hr {
   background: #f99a92;
   width: 180px;
   height: 50px;
-  letter-spacing: 0.3px;
+  letter-spacing: 1px;
   border-radius: 9px;
   border: #f99a92;
   cursor: pointer;
