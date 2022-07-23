@@ -1,7 +1,6 @@
 "use strict";
 // import "./node_modules/dotenv";
-
-// require("dotenv").config();
+import { APIKEY_1, APIKEY_2 } from "./config.js";
 
 const API_KEY = process.env.APIKEY_1;
 
