@@ -544,8 +544,8 @@ li {
 
   .hamburger {
     display: flex;
-    width: 80px;
-    height: 80px;
+    width: 65px;
+    height: 65px;
     /*  align-self: flex-start;*/
     margin-left: 2.2rem;
     margin-top: 2.5rem;
@@ -625,7 +625,7 @@ li {
     flex-direction: column;
     margin: auto;
     margin-top: 35px;
-    margin-left: -5.5rem;
+    margin-left: -6.5rem;
     align-items: center;
     width: 255px;
     background-image: url(./img/Sc5.jpg);
@@ -639,7 +639,7 @@ li {
     flex-direction: column;
     margin: auto;
     margin-top: 35px;
-    margin-left: -5.5rem;
+    margin-left: -6.5rem;
     margin-bottom: 50px;
     align-items: center;
     width: 255px;
