@@ -326,7 +326,7 @@ li {
   }
 
   .title {
-    font-size: 125px;
+    font-size: 115px;
     line-height: 90%;
     padding-left: 35px;
   }
@@ -334,7 +334,7 @@ li {
   .description {
     text-align: justify;
     padding: 0 5px 0 35px;
-    font-size: 26px;
+    font-size: 24px;
     font-weight: normal;
     font-family: Georgia, "Times New Roman", Times, serif;
     font-family: "Montserrat", sans-serif;
@@ -345,7 +345,7 @@ li {
   }
 
   hr {
-    margin: 1rem 0.2rem 1.5rem 2.1rem;
+    margin: 1rem 0rem 1.5rem 2.1rem;
     color: black;
     height: 1.6px;
     background: black;
@@ -354,7 +354,7 @@ li {
   }
 
   .learn-more-btn {
-    font-size: 24px;
+    font-size: 23px;
     padding: 0.5em 0.3em;
     margin: 0 0 50px 35px;
     width: 200px;
