@@ -165,17 +165,10 @@ li {
   .hero-container {
     height: 100vh;
     width: 100vw;
-    /*border: 2px solid red;*/
   }
 
   .hero-content {
     margin-top: 0.2vh;
-    /* display: flex;
-      height: 100vh;
-    width: 100vw;
-    justify-content: center;
-       border: 2px solid red;
-    */
   }
 
   .contents {
@@ -293,6 +286,117 @@ li {
     align-self: flex-end;
     margin-right: 0rem;
     margin-left: 200px;
+    margin-top: -18vh;
+    height: 70px;
+    width: 70px;
+    /*border: 2px solid white;*/
+  }
+
+  .sidebar-menu a:hover {
+    color: #ffffff;
+    transition: 200ms;
+  }
+}
+
+@media screen and (max-width: 480px) and (min-width: 376px) {
+  .hero-container {
+    height: 100vh;
+    width: 100vw;
+    /*border: 2px solid red;*/
+  }
+
+  .contents {
+    margin: 0;
+    padding-bottom: 0;
+    /*border: 2px solid red;*/
+  }
+
+  .hero-img {
+    display: none;
+  }
+
+  .hero-img {
+    display: none;
+  }
+
+  .hamburger {
+    width: 80px;
+    height: 80px;
+    margin: 2rem 0 2.5rem 2.5rem;
+  }
+
+  .title {
+    font-size: 125px;
+    line-height: 90%;
+    padding-left: 35px;
+  }
+
+  .description {
+    text-align: justify;
+    padding: 0 10px 0 35px;
+    font-size: 25px;
+    font-weight: normal;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: "Montserrat", sans-serif;
+    line-height: 125%;
+    letter-spacing: -0.5px;
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+
+  hr {
+    margin: 1.3rem 0.2rem 1.5rem 2.1rem;
+    color: black;
+    height: 1.6px;
+    background: black;
+    border: none;
+    border-radius: 250px;
+  }
+
+  .learn-more-btn {
+    font-size: 24px;
+    padding: 0.5em 0.3em;
+    margin: 0 0 50px 35px;
+    width: 200px;
+    height: 60px;
+  }
+
+  .sidebar {
+    display: flex;
+    /* margin: auto;*/
+    flex-direction: column;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    /*width: 575px;*/
+    height: 100vh;
+    width: 100%;
+    /* grid-template-columns: 45%;*/
+    background-color: black;
+    left: -150%;
+    transition: 850ms;
+  }
+
+  .sidebar.active {
+    left: 0;
+    transition: 500ms;
+  }
+
+  .sidebar-menu a {
+    text-decoration: none;
+    font-size: 60px;
+    color: white;
+    font-family: "Bebas Neue", cursive;
+  }
+
+  .cross img {
+    cursor: pointer;
+    display: flex;
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin-right: 0rem;
+    margin-left: 280px;
     margin-top: -18vh;
     height: 70px;
     width: 70px;
