@@ -333,8 +333,8 @@ li {
 
   .description {
     text-align: justify;
-    padding: 0 10px 0 35px;
-    font-size: 25px;
+    padding: 0 5px 0 35px;
+    font-size: 26px;
     font-weight: normal;
     font-family: Georgia, "Times New Roman", Times, serif;
     font-family: "Montserrat", sans-serif;
@@ -345,7 +345,7 @@ li {
   }
 
   hr {
-    margin: 1.3rem 0.2rem 1.5rem 2.1rem;
+    margin: 1rem 0.2rem 1.5rem 2.1rem;
     color: black;
     height: 1.6px;
     background: black;
