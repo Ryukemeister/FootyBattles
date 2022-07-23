@@ -403,7 +403,7 @@ li {
   margin-right: 8px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 376px) {
   .container {
     display: flex;
     /*grid-template-columns: 10% 90%;*/
@@ -531,11 +531,136 @@ li {
     background-color: black;
   }
 
-  /*
-  .scorecard-one-invisible,
-  .scorecard-two-invisible {
+  .right-search-bar {
+    margin-bottom: 3rem;
+  }
+}
+
+@media screen and (max-width: 480px) and (min-width: 376px) {
+  .container {
+    display: flex;
+    /*grid-template-columns: 10% 90%;*/
+  }
+
+  .hamburger {
+    display: flex;
+    width: 80px;
+    height: 80px;
+    /*  align-self: flex-start;*/
+    margin-left: 2.2rem;
+    margin-top: 2.5rem;
+    cursor: pointer;
+  }
+
+  .scorecards {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .scorecard {
+    margin-top: 100px;
+    /*border: 2px solid red;*/
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    /* grid-template-columns: 45%;*/
+    background-color: black;
+    left: -200%;
+    transition: 850ms;
+  }
+
+  .sidebar-menu a {
+    text-decoration: none;
+    font-size: 50px;
+    color: white;
+    font-family: "Bebas Neue", cursive;
+  }
+
+  .sidebar.active {
+    left: 0;
+    transition: 500ms;
+  }
+
+  .cross img {
+    cursor: pointer;
+    display: flex;
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin-right: 0rem;
+    margin-left: 200px;
+    margin-top: -18vh;
+    /*margin-top: -170px;*/
+    height: 70px;
+    width: 70px;
+    /*border: 2px solid white;*/
+  }
+
+  .sidebar-menu a:hover {
+    color: #ffffff;
+    transition: 200ms;
+  }
+
+  .search-bar {
+    margin-top: 3.5rem;
+    margin-left: -7.5rem;
+    padding: 8px;
+    /* width: 230px;*/
+    width: 70vw;
+  }
+
+  .scorecard-separator {
     display: none;
-  }*/
+  }
+
+  .scorecard-one {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 35px;
+    margin-left: -5.5rem;
+    align-items: center;
+    width: 255px;
+    background-image: url(./img/Sc5.jpg);
+    background-position: center center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .scorecard-two {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 35px;
+    margin-left: -5.5rem;
+    margin-bottom: 50px;
+    align-items: center;
+    width: 255px;
+    background-image: url(./img/Sc5.jpg);
+    background-position: center center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .player-data {
+    margin-top: 8px;
+  }
+
+  .score-card-separator {
+    margin-top: 50px;
+    margin-left: -70px;
+    width: 220px;
+    border-radius: 100px;
+    border: 0.7px solid black;
+    background-color: black;
+  }
 
   .right-search-bar {
     margin-bottom: 3rem;
