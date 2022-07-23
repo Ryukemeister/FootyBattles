@@ -1,5 +1,9 @@
 "use strict";
-import { apiKey, apiKEY, APIKEY } from "./utils.js";
+// import "./node_modules/dotenv";
+
+// require("dotenv").config();
+
+const API_KEY = process.env.APIKEY_1;
 
 const toggleBtn = document.querySelector(".hamburger-icon");
 const crossBtn = document.querySelector(".cross-icon");
@@ -399,7 +403,7 @@ const getDesiredPlayer = function (desiredPlayerName, scorecardNumber) {
       method: "POST",
       headers: {
         "x-rapidapi-host": "sportscore1.p.rapidapi.com",
-        "x-rapidapi-key": apiKey,
+        "x-rapidapi-key": API_KEY,
       },
     }
   )
@@ -432,7 +436,7 @@ const getDesiredPlayer = function (desiredPlayerName, scorecardNumber) {
       //console.log(id);
 
       if (position_name.toLowerCase() == "forward") {
-        getStrikerStats(id, apiKey, scorecardNumber);
+        getStrikerStats(id, API_KEY, scorecardNumber);
         name,
           updatePlayerDetails(
             name,
@@ -443,7 +447,7 @@ const getDesiredPlayer = function (desiredPlayerName, scorecardNumber) {
           );
         getPlayersClubFromId(id, scorecardNumber);
       } else if (position_name.toLowerCase() == "midfielder") {
-        getMidfielderStats(id, apiKey, scorecardNumber);
+        getMidfielderStats(id, API_KEY, scorecardNumber);
         updatePlayerDetails(
           name,
           photo,
@@ -453,7 +457,7 @@ const getDesiredPlayer = function (desiredPlayerName, scorecardNumber) {
         );
         getPlayersClubFromId(id, scorecardNumber);
       } else if (position_name.toLowerCase() == "defender") {
-        getDefenderStats(id, apiKey, scorecardNumber);
+        getDefenderStats(id, API_KEY, scorecardNumber);
         updatePlayerDetails(
           name,
           photo,
@@ -463,7 +467,7 @@ const getDesiredPlayer = function (desiredPlayerName, scorecardNumber) {
         );
         getPlayersClubFromId(id, scorecardNumber);
       } else {
-        getGoalieStats(id, apiKey, scorecardNumber);
+        getGoalieStats(id, API_KEY, scorecardNumber);
         updatePlayerDetails(
           name,
           photo,
@@ -487,7 +491,7 @@ const getPlayersClubFromId = async function (playerId, scorecardNumber) {
     method: "GET",
     headers: {
       "X-RapidAPI-Host": "sportscore1.p.rapidapi.com",
-      "X-RapidAPI-Key": apiKey,
+      "X-RapidAPI-Key": API_KEY,
     },
   };
 
