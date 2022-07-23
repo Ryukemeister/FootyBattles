@@ -2,7 +2,8 @@
 // import "./node_modules/dotenv";
 import APIKEY_1 from "./config.js";
 
-// require("dotenv").config();
+require("dotenv").config();
+
 const API_KEY = process.env.APIKEY_1;
 
 const toggleBtn = document.querySelector(".hamburger-icon");
