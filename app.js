@@ -1,10 +1,10 @@
 "use strict";
 // import "./node_modules/dotenv";
-import APIKEY_1 from "./config.js";
+import API_KEY from "./config.js";
 
-require("dotenv").config();
+// require("dotenv").config();
 
-const API_KEY = process.env.APIKEY_1;
+// const API_KEY = process.env.APIKEY_1;
 
 const toggleBtn = document.querySelector(".hamburger-icon");
 const crossBtn = document.querySelector(".cross-icon");
