@@ -195,7 +195,7 @@ li {
   margin-bottom: 35px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 376px) {
   .hero-content {
     display: flex;
     flex-direction: column;
@@ -243,6 +243,133 @@ li {
     justify-content: flex-start;
     align-items: center;
     padding: 0 0 0 30px;
+  }
+
+  .contact-message {
+    margin: 30px 0 30px 0;
+    font-size: 28px;
+    letter-spacing: 1.7px;
+  }
+
+  .contact-us-form label {
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+
+  .separator {
+    width: 280px;
+    margin-bottom: 30px;
+  }
+
+  .contact-us-form input {
+    font-size: 17px;
+  }
+
+  .contact-us-form ::placeholder {
+    font-size: 17px;
+  }
+
+  .submit-btn {
+    font-size: 21px;
+    margin: 0 0 0 0;
+  }
+
+  .arrow-right {
+    width: 20px;
+    margin-left: 10px;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    /* grid-template-columns: 45%;*/
+    background-color: black;
+    left: -200%;
+    transition: 850ms;
+    z-index: 100;
+  }
+
+  .sidebar-menu a {
+    text-decoration: none;
+    font-size: 50px;
+    color: white;
+    font-family: "Bebas Neue", cursive;
+  }
+
+  .sidebar.active {
+    left: 0;
+    transition: 500ms;
+  }
+
+  .cross img {
+    cursor: pointer;
+    display: flex;
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin-right: 0rem;
+    margin-left: 200px;
+    margin-top: -18vh;
+    /*margin-top: -170px;*/
+    height: 70px;
+    width: 70px;
+    /*border: 2px solid white;*/
+  }
+}
+
+@media screen and (max-width: 480px) and (min-width: 376px) {
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left-side {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hamburger-btn {
+    margin: 35px 0 15px -160px;
+    border: none;
+  }
+
+  .intro {
+    font-size: 48px;
+    margin: 0 0 0 27px;
+  }
+
+  .description {
+    font-size: 21px;
+    margin: 0 15px 0 28px;
+  }
+
+  .socials {
+    margin: 20px 0 40px 10px;
+  }
+
+  .socials a {
+    padding: 0 20px 0 20px;
+  }
+
+  .gmail {
+    height: 40px;
+  }
+
+  .instagram,
+  .twitter {
+    height: 37px;
+  }
+
+  .right-side {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 0 0 43px;
   }
 
   .contact-message {
